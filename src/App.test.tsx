@@ -9,6 +9,6 @@ describe('The App component', () => {
   test('renders a headline', () => {
     const { getByText } = setup();
 
-    expect(getByText('Seasonal')).toBeInTheDocument();
+    expect(getByText('seasonal')).toBeInTheDocument();
   });
 });
