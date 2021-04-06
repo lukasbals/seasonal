@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {
   darkBlack,
+  darkGrey,
   mediumTransitionDuration,
   primaryShadow,
   secondaryFontFamily,
@@ -8,13 +9,14 @@ import {
 } from '../../constants/designTokens';
 
 export const StyledInput = styled.input`
-  width: calc(100% - 87px);
+  width: calc(100% - 124px);
   margin: 0;
-  padding: 20px 20px 20px 64px;
+  padding: 28px 64px 28px 64px;
 
   font-family: ${secondaryFontFamily};
   font-size: 16px;
-  line-height: 100%;
+  line-height: 16px;
+  height: 16px;
   color: ${darkBlack};
 
   border-radius: 12px;
@@ -24,17 +26,22 @@ export const StyledInput = styled.input`
 
   transition: border ease ${mediumTransitionDuration};
 
+  &::placeholder {
+    color: ${darkGrey};
+    transition: color ease ${mediumTransitionDuration};
+  }
+
   &:focus {
     border: 1.5px solid ${darkBlack};
     outline: none;
-  }
 
-  &::placeholder {
-    color: ${darkBlack};
+    &::placeholder {
+      color: ${darkBlack};
+    }
   }
 `;
 
-const iconSize = '20px';
+const iconSize = '24px';
 
 export const StyledForm = styled.form`
   position: relative;
@@ -45,7 +52,7 @@ export const StyledForm = styled.form`
     width: ${iconSize};
     height: ${iconSize};
     left: 24px;
-    top: 20px;
+    top: 24px;
   }
 
   & svg:last-of-type {
@@ -54,14 +61,16 @@ export const StyledForm = styled.form`
     height: ${iconSize};
 
     right: 24px;
-    top: 20px;
+    top: 24px;
 
     cursor: pointer;
     opacity: 0;
+    pointer-events: none;
     transition: opacity ease ${mediumTransitionDuration};
   }
 
   &.clear-icon-visible svg:last-of-type {
     opacity: 1;
+    pointer-events: all;
   }
 `;

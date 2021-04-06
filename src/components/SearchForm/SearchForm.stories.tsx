@@ -13,8 +13,7 @@ const Template: Story<SearchFormProps> = (args) => <SearchForm {...args} />;
 export const InputWithPlaceholder = Template.bind({});
 InputWithPlaceholder.args = {
   placeholder: 'Search ...',
-  onSubmit: (event) => {
-    event.preventDefault();
-    console.log('Click');
+  onChange: (value) => {
+    console.log('Change: ', value);
   },
 };
