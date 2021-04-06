@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryFontFamily, primaryGreen } from '../../constants/designTokens';
+import { darkBlack, primaryFontFamily } from '../../constants/designTokens';
 
 export const StyledHeader = styled.header`
   height: 120px;
@@ -14,6 +14,11 @@ export const HeaderSection = styled.div`
 
   &:nth-of-type(2) {
     text-align: center;
+
+    & svg {
+      height: 40px;
+      width: auto;
+    }
   }
   &:nth-of-type(3) {
     text-align: right;
@@ -22,7 +27,7 @@ export const HeaderSection = styled.div`
 
 export const Heading = styled.h1`
   font-family: ${primaryFontFamily};
-  color: ${primaryGreen};
+  color: ${darkBlack};
   font-size: 40px;
   line-height: 40px;
 `;
