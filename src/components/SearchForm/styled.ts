@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {
   darkBlack,
   darkGrey,
+  mediumBorderRadius,
   mediumTransitionDuration,
   primaryShadow,
   secondaryFontFamily,
@@ -19,7 +20,7 @@ export const StyledInput = styled.input`
   height: 16px;
   color: ${darkBlack};
 
-  border-radius: 12px;
+  border-radius: ${mediumBorderRadius};
   border: 1.5px solid ${white};
   background: ${white};
   box-shadow: ${primaryShadow};
