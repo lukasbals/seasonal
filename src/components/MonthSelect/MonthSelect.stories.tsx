@@ -6,7 +6,7 @@ import { IntlProvider } from 'react-intl';
 import messagesDe from './messages.de';
 
 export default {
-  title: 'Example/MonthSelect',
+  title: 'Component/MonthSelect',
   component: MonthSelect,
 } as Meta;
 

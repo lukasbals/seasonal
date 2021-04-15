@@ -13,7 +13,12 @@ export const secondaryFontFamily = 'Arial, sans-serif';
 
 export const primaryShadow =
   '0px 4px 20px rgba(0, 0, 0, 0.06), 0px 1px 2px rgba(0, 0, 0, 0.2)';
+export const secondaryShadow =
+  '0px 1px 2px rgba(0, 0, 0, 0.16), 0px 4px 8px rgba(0, 0, 0, 0.12), 0px 4px 32px rgba(0, 0, 0, 0.06);';
 
 export const mediumTransitionDuration = '0.2s';
 
 export const mediumBorderRadius = '12px';
+export const bigBorderRadius = '24px';
+
+export const bigMaxWidth = '1440px';

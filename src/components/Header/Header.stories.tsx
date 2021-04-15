@@ -6,7 +6,7 @@ import Button from '../Button';
 import Logo from '../../assets/Logo';
 
 export default {
-  title: 'Example/Header',
+  title: 'Layout/Header',
   component: Header,
 } as Meta;
 
