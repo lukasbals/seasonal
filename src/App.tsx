@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { createGlobalStyle } from 'styled-components';
+import GreenBadge from './assets/GreenBadge';
 import Logo from './assets/Logo';
+import YellowBadge from './assets/YellowBadge';
+import BadgeContainer from './components/BadgeContainer';
 import BottomDrawer from './components/BottomDrawer';
 import Button from './components/Button';
 import Header from './components/Header';
@@ -37,6 +40,18 @@ function App(): JSX.Element {
             />
           }
           left={<Button label="Learn more" size="small" />}
+        />
+        <BadgeContainer
+          top={window.innerHeight / 2 + 30}
+          left={-50}
+          rotate={-13}
+          badge={<GreenBadge />}
+        />
+        <BadgeContainer
+          top={window.innerHeight / 4}
+          right={0}
+          rotate={13}
+          badge={<YellowBadge />}
         />
       </Wrapper>
       <BottomDrawer expanded={expanded} onChange={setExpanded}>

@@ -1,0 +1,21 @@
+import styled from 'styled-components';
+
+interface StyledBadgeContainerProps {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+  rotate?: number;
+}
+export const StyledBadgeContainer = styled.div<StyledBadgeContainerProps>`
+  width: 165px;
+  height: 165px;
+  position: absolute;
+
+  top: ${({ top }) => top}px;
+  right: ${({ right }) => right}px;
+  bottom: ${({ bottom }) => bottom}px;
+  left: ${({ left }) => left}px;
+
+  transform: rotate(${({ rotate }) => rotate}deg);
+`;
