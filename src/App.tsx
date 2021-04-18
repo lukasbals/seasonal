@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { createGlobalStyle } from 'styled-components';
-import GreenBadge from './assets/GreenBadge';
-import Logo from './assets/Logo';
-import YellowBadge from './assets/YellowBadge';
-import BadgeContainer from './components/BadgeContainer';
-import BottomDrawer from './components/BottomDrawer';
-import Button from './components/Button';
-import Header from './components/Header';
-import MonthSelect from './components/MonthSelect';
-import Wrapper from './components/Wrapper';
-import { pageBackground } from './constants/designTokens';
+
+import { pageBackground, secondaryFontFamily } from './constants/designTokens';
+import MainScreen from './features/MainScreen';
 import rootMessagesDe from './rootMessages.de';
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    font-family: ${secondaryFontFamily}
+  }
+
   body {
     margin: 0;
     background-color: ${pageBackground};
@@ -21,46 +18,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App(): JSX.Element {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <IntlProvider messages={rootMessagesDe} locale="de">
       <GlobalStyle />
-      <Wrapper>
-        <Header
-          heading={
-            <Logo
-              onClick={() => {
-                if (expanded) {
-                  setExpanded(false);
-                } else {
-                  window.location.reload();
-                }
-              }}
-            />
-          }
-          left={<Button label="Learn more" size="small" />}
-        />
-        <BadgeContainer
-          top={window.innerHeight / 2 + 30}
-          left={-50}
-          rotate={-13}
-          badge={<GreenBadge />}
-        />
-        <BadgeContainer
-          top={window.innerHeight / 4}
-          right={0}
-          rotate={13}
-          badge={<YellowBadge />}
-        />
-      </Wrapper>
-      <BottomDrawer expanded={expanded} onChange={setExpanded}>
-        <MonthSelect
-          onSelect={(month: string) => {
-            console.log('select', month);
-          }}
-        />
-      </BottomDrawer>
+      <MainScreen />
     </IntlProvider>
   );
 }

@@ -1,6 +1,7 @@
 // Colors
 export const primaryGreen = '#34A852';
 export const secondaryGreen = 'rgba(52, 168, 82, 0.1)';
+export const mediumGreen = '#82907F';
 export const primaryYellow = '#FFD057';
 export const darkBlack = '#0C3116';
 export const black = '#000000';
@@ -11,8 +12,8 @@ export const white = '#FFFFFF';
 export const pageBackground = '#F4EDE6';
 
 // Fonts
-export const primaryFontFamily = 'Georgia, serif';
-export const secondaryFontFamily = 'Arial, sans-serif';
+export const primaryFontFamily = "'Petrona', serif";
+export const secondaryFontFamily = "'Inter', sans-serif";
 
 // Shadows
 export const primaryShadow =

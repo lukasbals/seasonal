@@ -5,6 +5,7 @@ import {
   mediumTransitionDuration,
   primaryGreen,
   primaryShadow,
+  secondaryFontFamily,
   white,
 } from '../../constants/designTokens';
 
@@ -35,6 +36,7 @@ export const MonthSelectButton = styled.button`
   font-size: 16px;
   line-height: 100%;
   color: ${black};
+  font-family: ${secondaryFontFamily};
   transition: background-color ease ${mediumTransitionDuration},
     color ease ${mediumTransitionDuration};
 

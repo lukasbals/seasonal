@@ -9,7 +9,7 @@ export interface ButtonProps {
   /**
    * Button contents
    */
-  label: string | React.FC;
+  label: string | JSX.Element;
   /**
    * Optional click handler
    */
@@ -19,13 +19,13 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   size = 'large',
   label,
-  ...props
+  onClick,
 }: ButtonProps) => {
   return (
     <StyledButton
       type="button"
       className={`seasonal-button--${size}`}
-      {...props}
+      onClick={onClick}
     >
       {label}
     </StyledButton>
