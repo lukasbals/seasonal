@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { largeBreakpointCss } from '../../constants/designTokens';
 
 interface StyledBadgeContainerProps {
   top?: number;
@@ -18,4 +19,9 @@ export const StyledBadgeContainer = styled.div<StyledBadgeContainerProps>`
   left: ${({ left }) => left}px;
 
   transform: rotate(${({ rotate }) => rotate}deg);
+
+  ${largeBreakpointCss} {
+    width: 105px;
+    height: 105px;
+  }
 `;

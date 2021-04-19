@@ -10,10 +10,26 @@ import Header from '../../components/Header';
 import MonthSelect from '../../components/MonthSelect';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
+import { largeBreakpoint } from '../../constants/designTokens';
 import { MainScreenContainer } from './styled';
+
+const desktopBadgePosition = {
+  yellow: { top: window.innerHeight / 4, right: 0, rotate: 13 },
+  green: { top: window.innerHeight / 2 + 150, left: -10, rotate: -13 },
+};
+
+const mobileBadgePosition = {
+  yellow: { top: 0, left: -32, rotate: -27 },
+  green: { right: -32, bottom: -110, rotate: -13 },
+};
 
 export const MainScreen: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
+
+  const badgePosition =
+    window.innerWidth < largeBreakpoint
+      ? mobileBadgePosition
+      : desktopBadgePosition;
 
   return (
     <>
@@ -31,6 +47,7 @@ export const MainScreen: React.FC = () => {
             />
           }
           left={<Button label="Learn more" size="small" />}
+          expanded={expanded}
         />
         <MainScreenContainer>
           <Heading1>
@@ -44,20 +61,10 @@ export const MainScreen: React.FC = () => {
             onClick={() => setExpanded(true)}
           />
         </MainScreenContainer>
-
-        <BadgeContainer
-          top={window.innerHeight / 2 + 150}
-          left={-10}
-          rotate={-13}
-          badge={<GreenBadge />}
-        />
-        <BadgeContainer
-          top={window.innerHeight / 4}
-          right={0}
-          rotate={13}
-          badge={<YellowBadge />}
-        />
+        <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
+        <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
       </Wrapper>
+
       <BottomDrawer expanded={expanded} onChange={setExpanded}>
         <MonthSelect
           onSelect={(month: string) => {

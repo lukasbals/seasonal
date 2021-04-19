@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {
   bigBorderRadius,
   bigMaxWidth,
+  largeBreakpointCss,
   mediumTransitionDuration,
   secondaryShadow,
   white,
@@ -22,6 +23,9 @@ export const PageBackground = styled.div`
 
 const gapTopExpanded = '96px';
 const drawerVisibleUnexpanded = '60px';
+
+const gapTopExpandedMobile = '76px';
+const drawerVisibleUnexpandedMobile = '40px';
 
 const drawerPaddingTop = '42px';
 const drawerPaddingSide = '40px';
@@ -55,6 +59,15 @@ export const ButtomDrawerContainer = styled.div`
     top: ${gapTopExpanded};
 
     cursor: auto;
+  }
+
+  ${largeBreakpointCss} {
+    top: calc(100% - ${drawerVisibleUnexpandedMobile});
+    height: calc(100% - ${gapTopExpandedMobile});
+
+    &.expanded {
+      top: ${gapTopExpandedMobile};
+    }
   }
 `;
 

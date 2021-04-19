@@ -1,12 +1,28 @@
 import styled from 'styled-components';
-import { darkBlack, primaryFontFamily } from '../../constants/designTokens';
+import {
+  darkBlack,
+  largeBreakpointCss,
+  lightGrey,
+  mediumTransitionDuration,
+  primaryFontFamily,
+} from '../../constants/designTokens';
 
-export const StyledHeader = styled.header`
-  height: 120px;
+interface StyledHeaderProps {
+  expanded?: boolean;
+}
+
+export const StyledHeader = styled.header<StyledHeaderProps>`
+  height: ${({ expanded }) => (expanded ? '100px' : '120px')};
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  transition: height ease ${mediumTransitionDuration};
+
+  ${largeBreakpointCss} {
+    height: ${({ expanded }) => (expanded ? '80px' : '100px')};
+  }
 `;
 
 export const HeaderSection = styled.div`
@@ -23,6 +39,24 @@ export const HeaderSection = styled.div`
   &:nth-of-type(3) {
     text-align: right;
   }
+
+  ${largeBreakpointCss} {
+    &:nth-of-type(1) {
+      width: 20%;
+    }
+
+    &:nth-of-type(2) {
+      text-align: center;
+      width: 50%;
+
+      & svg {
+        height: 24px;
+      }
+    }
+    &:nth-of-type(3) {
+      width: 20%;
+    }
+  }
 `;
 
 export const Heading = styled.h1`
@@ -30,4 +64,31 @@ export const Heading = styled.h1`
   color: ${darkBlack};
   font-size: 40px;
   line-height: 40px;
+`;
+
+interface BurgerContainerProps {
+  expanded?: boolean;
+}
+
+export const BurgerContainer = styled.div<BurgerContainerProps>`
+  margin-top: 12px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: ${({ expanded }) =>
+    expanded ? `solid 1.5px transparent` : `solid 1.5px ${lightGrey}`};
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+
+  transition: border ease ${mediumTransitionDuration};
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+  }
 `;

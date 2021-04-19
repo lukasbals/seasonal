@@ -6,6 +6,7 @@ export const primaryYellow = '#FFD057';
 export const darkBlack = '#0C3116';
 export const black = '#000000';
 export const darkGrey = '#999999';
+export const lightGrey = 'rgba(0, 0, 0, 0.08)';
 
 export const white = '#FFFFFF';
 
@@ -30,3 +31,9 @@ export const bigBorderRadius = '24px';
 
 // Viewport sizes
 export const bigMaxWidth = '1440px';
+
+// Breakpoints
+export const largeBreakpoint = 992;
+
+// CSS Breakpoints
+export const largeBreakpointCss = `@media only screen and (max-width: ${largeBreakpoint}px)`;

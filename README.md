@@ -2,7 +2,7 @@
 
 Seasonal is your seasonal/regional calendar for food. You can find the hosted version
 on [seasonal.wiki](https://seasonal.wiki). The project is based on
-[https://reactjs.org](React) and you can find the storybook component library on
+[React](https://reactjs.org) and you can find the storybook component library on
 [storybook.seasonal.wiki](https://storybook.seasonal.wiki).
 
 ## Available commands:

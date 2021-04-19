@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { bigMaxWidth } from '../../constants/designTokens';
+import { bigMaxWidth, largeBreakpointCss } from '../../constants/designTokens';
 
 export const Wrapper = styled.div`
   max-width: ${bigMaxWidth};
@@ -8,4 +8,8 @@ export const Wrapper = styled.div`
   padding: 0 80px;
 
   position: relative;
+
+  ${largeBreakpointCss} {
+    padding: 0 24px;
+  }
 `;
