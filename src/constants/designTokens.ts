@@ -1,12 +1,14 @@
 // Colors
 export const primaryGreen = '#34A852';
 export const secondaryGreen = 'rgba(52, 168, 82, 0.1)';
+export const darkGreen = '#039E38';
 export const mediumGreen = '#82907F';
 export const primaryYellow = '#FFD057';
 export const darkBlack = '#0C3116';
 export const black = '#000000';
 export const darkGrey = '#999999';
-export const lightGrey = 'rgba(0, 0, 0, 0.08)';
+export const lightGrey = 'rgba(0, 0, 0, 0.1)';
+export const orange = '#FF5128';
 
 export const white = '#FFFFFF';
 
