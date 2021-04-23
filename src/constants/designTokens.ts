@@ -35,7 +35,15 @@ export const bigBorderRadius = '24px';
 export const bigMaxWidth = '1440px';
 
 // Breakpoints
+export const smallBreakpoint = 540;
+export const mediumBreakpoint = 760;
 export const largeBreakpoint = 992;
+export const xLargBreakpoint = 1200;
+export const xxLargBreakpoint = 1440;
 
 // CSS Breakpoints
+export const smallBreakpointCss = `@media only screen and (max-width: ${smallBreakpoint}px)`;
+export const mediumBreakpointCss = `@media only screen and (max-width: ${mediumBreakpoint}px)`;
 export const largeBreakpointCss = `@media only screen and (max-width: ${largeBreakpoint}px)`;
+export const xLargeBreakpointCss = `@media only screen and (max-width: ${xLargBreakpoint}px)`;
+export const xxLargeBreakpointCss = `@media only screen and (max-width: ${xxLargBreakpoint}px)`;

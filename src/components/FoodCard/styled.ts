@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import {
+  black,
   darkGreen,
   lightGrey,
   mediumBorderRadius,
   orange,
   primaryFontFamily,
   secondaryFontFamily,
+  smallBreakpointCss,
 } from '../../constants/designTokens';
 
 export const FoodCardContainer = styled.div`
@@ -20,6 +22,10 @@ export const FoodCardContainer = styled.div`
 
   border: 1px solid ${lightGrey};
   border-radius: ${mediumBorderRadius};
+
+  ${smallBreakpointCss} {
+    height: 196px;
+  }
 `;
 
 export const TypeContainer = styled.div`
@@ -47,6 +53,7 @@ export const TypeText = styled.div`
   font-weight: 500;
   font-size: 10px;
   line-height: 100%;
+  color: ${black};
 
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -55,9 +62,15 @@ export const TypeText = styled.div`
 `;
 
 export const NameText = styled.div`
+  font-family: ${primaryFontFamily};
+
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
 
-  font-family: ${primaryFontFamily};
+  color: ${black};
+
+  ${smallBreakpointCss} {
+    font-size: 16px;
+  }
 `;

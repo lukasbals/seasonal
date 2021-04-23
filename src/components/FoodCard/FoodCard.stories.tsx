@@ -7,7 +7,7 @@ import { IntlProvider } from 'react-intl';
 import messagesDe from './messages.de';
 
 export default {
-  title: 'Component/Card',
+  title: 'Component/FoodCard',
   component: FoodCard,
 } as Meta;
 
