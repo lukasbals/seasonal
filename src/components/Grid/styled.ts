@@ -1,10 +1,40 @@
 import styled from 'styled-components';
 import {
+  darkBlack,
   largeBreakpointCss,
   mediumBreakpointCss,
+  primaryFontFamily,
   xLargeBreakpointCss,
   xxLargeBreakpointCss,
 } from '../../constants/designTokens';
+
+export const EmptyContainer = styled.div`
+  text-align: center;
+  padding-top: 20vh;
+
+  & svg {
+    width: 175px;
+    height: 175px;
+  }
+
+  & button {
+    margin-top: 24px;
+  }
+`;
+
+export const EmptyText = styled.div`
+  margin-top: 48px;
+
+  font-family: ${primaryFontFamily};
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: ${darkBlack};
+`;
 
 export const GridContainer = styled.div`
   display: grid;

@@ -38,4 +38,19 @@ WithItems.args = {
       id: `id-${itemId}`,
     })
   ),
+  emptyText: 'Nothing found',
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  items: [],
+  emptyText: 'Nothing found',
+};
+
+export const EmptyWithAction = Template.bind({});
+EmptyWithAction.args = {
+  items: [],
+  emptyText: 'Nothing found',
+  emptyActionText: 'Reset search',
+  onEmptyAction: () => console.log('On empty action clicked'),
 };

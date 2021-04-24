@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import {
+  darkBlack,
   primaryGreen,
   secondaryFontFamily,
   secondaryGreen,
   white,
 } from '../../constants/designTokens';
 
-export const StyledButton = styled.button`
+export const PrimaryButton = styled.button`
   border: hidden;
   border-radius: 1000px;
   font-family: ${secondaryFontFamily};
@@ -36,4 +37,21 @@ export const StyledButton = styled.button`
 
     border: 1.5px solid ${primaryGreen};
   }
+`;
+
+export const LinkButton = styled.button`
+  background-color: transparent;
+  border: hidden;
+
+  padding: 2px 0;
+
+  border-bottom: 1px solid ${darkBlack};
+
+  font-family: ${secondaryFontFamily};
+  font-size: 16px;
+  line-height: 100%;
+
+  color: ${darkBlack};
+
+  cursor: pointer;
 `;
