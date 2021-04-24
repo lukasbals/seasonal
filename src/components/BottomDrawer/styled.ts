@@ -5,15 +5,16 @@ import {
   largeBreakpointCss,
   mediumTransitionDuration,
   secondaryShadow,
+  smallBreakpointCss,
   white,
 } from '../../constants/designTokens';
 
 export const PageBackground = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 
   background-color: transparent;
@@ -69,10 +70,19 @@ export const ButtomDrawerContainer = styled.div`
       top: ${gapTopExpandedMobile};
     }
   }
+
+  ${smallBreakpointCss} {
+    width: calc(100% - 16px);
+  }
 `;
 
 export const DrawerContent = styled.div`
   margin: ${drawerPaddingTop} ${drawerPaddingSide} 0 ${drawerPaddingSide};
 
   height: calc(100% - ${drawerPaddingTop});
+
+  ${smallBreakpointCss} {
+    margin: 0;
+    height: 100%;
+  }
 `;

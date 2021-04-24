@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import {
   black,
+  darkBlack,
   mediumBorderRadius,
+  mediumBreakpointCss,
   mediumTransitionDuration,
   primaryGreen,
   primaryShadow,
@@ -22,6 +24,13 @@ export const MonthSelectContainer = styled.div`
   border-radius: ${mediumBorderRadius};
 
   padding: 22px 28px 18px 28px;
+
+  ${mediumBreakpointCss} {
+    box-shadow: none;
+    border-bottom: 1px solid ${darkBlack}1A;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const MonthSelectButton = styled.button`

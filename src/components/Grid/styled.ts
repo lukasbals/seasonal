@@ -20,6 +20,17 @@ export const EmptyContainer = styled.div`
   & button {
     margin-top: 24px;
   }
+
+  ${mediumBreakpointCss} {
+    & svg {
+      width: 104px;
+      height: 104px;
+    }
+
+    & button {
+      margin-top: 16px;
+    }
+  }
 `;
 
 export const EmptyText = styled.div`
@@ -34,6 +45,11 @@ export const EmptyText = styled.div`
   letter-spacing: -0.02em;
 
   color: ${darkBlack};
+
+  ${mediumBreakpointCss} {
+    margin-top: 24px;
+    font-size: 22px;
+  }
 `;
 
 export const GridContainer = styled.div`

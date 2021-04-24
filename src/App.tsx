@@ -16,6 +16,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${pageBackground};
     overflow: hidden;
   }
+
+  /* Fix IOS input fields */
+  input[type=text] {      
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 `;
 
 function App(): JSX.Element {

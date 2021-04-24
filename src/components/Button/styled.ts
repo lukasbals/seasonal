@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {
   darkBlack,
+  mediumBreakpointCss,
   primaryGreen,
   secondaryFontFamily,
   secondaryGreen,
@@ -54,4 +55,9 @@ export const LinkButton = styled.button`
   color: ${darkBlack};
 
   cursor: pointer;
+
+  ${mediumBreakpointCss} {
+    font-size: 14px;
+    line-height: 150%;
+  }
 `;

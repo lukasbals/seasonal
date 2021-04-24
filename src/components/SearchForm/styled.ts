@@ -46,7 +46,7 @@ const iconSize = '24px';
 
 export const StyledForm = styled.form`
   position: relative;
-  width: 400px;
+  width: 100%;
 
   & svg:first-of-type {
     position: absolute;
