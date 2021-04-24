@@ -10,10 +10,20 @@ export default {
 
 const Template: Story<SearchFormProps> = (args) => <SearchForm {...args} />;
 
-export const InputWithPlaceholder = Template.bind({});
-InputWithPlaceholder.args = {
+export const InputEmpty = Template.bind({});
+InputEmpty.args = {
   placeholder: 'Search ...',
   onChange: (value) => {
     console.log('Change: ', value);
   },
+  value: '',
+};
+
+export const InputWithValue = Template.bind({});
+InputWithValue.args = {
+  placeholder: 'Search ...',
+  onChange: (value) => {
+    console.log('Change: ', value);
+  },
+  value: 'Banana',
 };

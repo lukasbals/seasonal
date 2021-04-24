@@ -6,12 +6,11 @@ import YellowBadge from '../../assets/YellowBadge';
 import BadgeContainer from '../../components/BadgeContainer';
 import BottomDrawer from '../../components/BottomDrawer';
 import Button from '../../components/Button';
-import Grid from '../../components/Grid';
 import Header from '../../components/Header';
-import MonthSelect from '../../components/MonthSelect';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
 import { largeBreakpoint } from '../../constants/designTokens';
+import GridScreen from '../GridScreen';
 import { MainScreenContainer } from './styled';
 
 const desktopBadgePosition = {
@@ -67,14 +66,7 @@ export const MainScreen: React.FC = () => {
       </Wrapper>
 
       <BottomDrawer expanded={expanded} onChange={setExpanded}>
-        <>
-          <MonthSelect
-            onSelect={(month: string) => {
-              console.log('select', month);
-            }}
-          />
-          <Grid items={[]} emptyText="No food found" />
-        </>
+        <GridScreen />
       </BottomDrawer>
     </>
   );

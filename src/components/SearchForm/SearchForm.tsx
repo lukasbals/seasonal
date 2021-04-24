@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import SearchSymbol from '../../assets/SearchSymbol';
 import ClearCircle from '../../assets/ClearCircle';
 import { StyledInput, StyledForm } from './styled';
@@ -6,22 +6,19 @@ import { StyledInput, StyledForm } from './styled';
 export interface SearchFormProps {
   placeholder: string;
   onChange: (value: string) => void;
+  value: string;
 }
 
 export const SearchForm: React.FC<SearchFormProps> = ({
   placeholder,
   onChange,
+  value,
 }: SearchFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState('');
 
   const onSubmitInternal = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-
-  useEffect(() => {
-    onChange(value);
-  }, [value]);
 
   return (
     <StyledForm
@@ -34,13 +31,13 @@ export const SearchForm: React.FC<SearchFormProps> = ({
         name="search"
         placeholder={placeholder}
         value={value}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         ref={inputRef}
       />
       <ClearCircle
         onClick={() => {
           inputRef.current?.focus();
-          setValue('');
+          onChange('');
         }}
       />
     </StyledForm>
