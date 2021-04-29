@@ -1,8 +1,12 @@
-interface Food {
-  id: string;
+import { Month } from './Month';
+
+export interface Food {
   name: string;
   type: 'vegetable' | 'fruit';
   asset: string | JSX.Element;
 }
 
-export default Food;
+export interface FoodWithMeta extends Food {
+  id: string;
+  month: Month;
+}

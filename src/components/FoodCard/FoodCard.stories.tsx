@@ -2,7 +2,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 
-import { FoodCard, FoodCardProps } from './FoodCard';
+import { FoodCard } from './FoodCard';
+import { Food } from '../../models/Food';
 import { IntlProvider } from 'react-intl';
 import messagesDe from './messages.de';
 
@@ -15,7 +16,7 @@ const CardContainer = styled.div`
   width: 220px;
 `;
 
-const Template: Story<FoodCardProps> = (args) => (
+const Template: Story<Food> = (args) => (
   <IntlProvider locale="de" messages={messagesDe}>
     <CardContainer>
       <FoodCard {...args} />

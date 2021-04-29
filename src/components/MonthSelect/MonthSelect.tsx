@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import months from '../../constants/months';
+import { Month } from '../../models/Month';
 import { MonthSelectButton, MonthSelectContainer } from './styled';
 
 export interface MonthSelectProps {
-  onSelect: (month: string) => void;
+  onSelect: (month: Month) => void;
 }
-
-const months = [
-  'jan',
-  'feb',
-  'mar',
-  'apr',
-  'may',
-  'jun',
-  'jul',
-  'aug',
-  'sep',
-  'oct',
-  'nov',
-  'dec',
-];
 
 export const MonthSelect: React.FC<MonthSelectProps> = ({
   onSelect,

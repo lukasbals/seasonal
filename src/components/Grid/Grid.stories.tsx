@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Grid, GridProps } from './Grid';
 import { IntlProvider } from 'react-intl';
 import messagesDe from '../FoodCard/messages.de';
-import Food from '../../models/Food';
+import { FoodWithMeta } from '../../models/Food';
 import { bigMaxWidth } from '../../constants/designTokens';
 
 export default {
@@ -31,11 +31,12 @@ const Template: Story<GridProps> = (args) => (
 export const WithItems = Template.bind({});
 WithItems.args = {
   items: itemIds.map(
-    (itemId): Food => ({
+    (itemId): FoodWithMeta => ({
       name: 'Name',
       type: 'fruit',
       asset: <div>Hello</div>,
       id: `id-${itemId}`,
+      month: 'apr',
     })
   ),
   emptyText: 'Nothing found',

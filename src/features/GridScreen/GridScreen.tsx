@@ -6,6 +6,7 @@ import MonthSelect from '../../components/MonthSelect';
 import SearchForm from '../../components/SearchForm';
 import { mediumBreakpoint } from '../../constants/designTokens';
 import FoodStore from '../../FoodStore';
+import { Month } from '../../models/Month';
 import {
   Gap,
   GridScreenContainer,
@@ -43,9 +44,7 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
             onChange={handleSearch}
           />
           <MonthSelect
-            onSelect={(month: string) => {
-              console.log('Select:', month);
-            }}
+            onSelect={(month: Month) => foodStore.setSelectedMonth(month)}
           />
         </GridScreenHeader>
         <Gap />

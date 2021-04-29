@@ -54,23 +54,24 @@ export const EmptyText = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: repeat(6, 1fr);
+
   column-gap: 24px;
   row-gap: 24px;
 
   ${xxLargeBreakpointCss} {
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
   }
 
   ${xLargeBreakpointCss} {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   ${largeBreakpointCss} {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   ${mediumBreakpointCss} {
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;

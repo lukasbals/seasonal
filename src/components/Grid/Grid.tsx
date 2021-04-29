@@ -1,12 +1,12 @@
 import React from 'react';
 import YellowBadge from '../../assets/YellowBadge';
-import Food from '../../models/Food';
+import { FoodWithMeta } from '../../models/Food';
 import Button from '../Button';
 import FoodCard from '../FoodCard';
 import { EmptyContainer, EmptyText, GridContainer } from './styled';
 
 export interface GridProps {
-  items: Food[];
+  items: FoodWithMeta[];
   emptyText: string | JSX.Element;
   emptyActionText?: string | JSX.Element;
   onEmptyAction?: () => void;

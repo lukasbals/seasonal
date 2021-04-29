@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Food } from '../../models/Food';
 import {
   Dot,
   FoodCardContainer,
@@ -8,17 +9,11 @@ import {
   TypeText,
 } from './styled';
 
-export interface FoodCardProps {
-  type: 'vegetable' | 'fruit';
-  asset: string | JSX.Element;
-  name?: string;
-}
-
-export const FoodCard: React.FC<FoodCardProps> = ({
+export const FoodCard: React.FC<Food> = ({
   type = 'vegetable',
   asset,
   name = '',
-}: FoodCardProps) => {
+}: Food) => {
   return (
     <FoodCardContainer>
       <TypeContainer>
