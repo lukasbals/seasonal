@@ -2,7 +2,7 @@ interface Food {
   id: string;
   name: string;
   type: 'vegetable' | 'fruit';
-  asset: JSX.Element;
+  asset: string | JSX.Element;
 }
 
 export default Food;

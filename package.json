@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "mobx": "^6.3.0",
+    "mobx-react-lite": "^3.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-intl": "^5.15.8",

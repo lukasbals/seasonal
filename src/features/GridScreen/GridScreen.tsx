@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Grid from '../../components/Grid';
 import MonthSelect from '../../components/MonthSelect';
 import SearchForm from '../../components/SearchForm';
 import { mediumBreakpoint } from '../../constants/designTokens';
-import Food from '../../models/Food';
+import FoodStore from '../../FoodStore';
 import {
   Gap,
   GridScreenContainer,
@@ -12,89 +13,67 @@ import {
   ScrollContainer,
 } from './styled';
 
-const itemIds = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-  26,
-  27,
-  28,
-  29,
-];
+interface GridScreenProps {
+  foodStore: FoodStore;
+}
 
-export const GridScreen: React.FC = () => {
-  const { formatMessage } = useIntl();
+export const GridScreen: React.FC<GridScreenProps> = observer(
+  ({ foodStore }: GridScreenProps) => {
+    const { formatMessage } = useIntl();
 
-  const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useState('');
 
-  return (
-    <GridScreenContainer>
-      <GridScreenHeader>
-        <SearchForm
-          placeholder={formatMessage({ id: 'gridScreen.searchPlaceholder' })}
-          value={searchValue}
-          onChange={setSearchValue}
-        />
-        <MonthSelect
-          onSelect={(month: string) => {
-            console.log('Select:', month);
-          }}
-        />
-      </GridScreenHeader>
-      <Gap />
-      <ScrollContainer>
-        <Grid
-          items={itemIds.map(
-            (itemId): Food => ({
-              name: `Name ${itemId}`,
-              type: 'fruit',
-              asset: <div>Hello</div>,
-              id: `id-${itemId}`,
-            })
-          )}
-          emptyText={
-            <FormattedMessage
-              id="gridScreen.nothingFoundMessage"
-              values={{ searchValue }}
-            />
-          }
-          emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
-          onEmptyAction={() => setSearchValue('')}
-        />
+    const handleSearch = (searchTerm: string) => {
+      setSearchValue(searchTerm);
+      foodStore.searchFood(searchTerm);
+    };
+
+    useEffect(() => {
+      if (foodStore.allFood.length === 0) {
+        foodStore.fetchFood();
+      }
+    }, [foodStore.allFood]);
+
+    return (
+      <GridScreenContainer>
+        <GridScreenHeader>
+          <SearchForm
+            placeholder={formatMessage({ id: 'gridScreen.searchPlaceholder' })}
+            value={searchValue}
+            onChange={handleSearch}
+          />
+          <MonthSelect
+            onSelect={(month: string) => {
+              console.log('Select:', month);
+            }}
+          />
+        </GridScreenHeader>
         <Gap />
-        {window.innerWidth < mediumBreakpoint && (
-          <>
-            <Gap />
-            <Gap />
-            <Gap />
-            <Gap />
-            <Gap />
-            <Gap />
-          </>
-        )}
-      </ScrollContainer>
-    </GridScreenContainer>
-  );
-};
+        <ScrollContainer>
+          <Grid
+            items={foodStore.displayedFood}
+            emptyText={
+              <FormattedMessage
+                id="gridScreen.nothingFoundMessage"
+                values={{ searchValue }}
+              />
+            }
+            emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
+            onEmptyAction={() => handleSearch('')}
+          />
+          <Gap />
+          {window.innerWidth < mediumBreakpoint && (
+            <>
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+            </>
+          )}
+        </ScrollContainer>
+      </GridScreenContainer>
+    );
+  }
+);

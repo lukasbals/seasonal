@@ -10,6 +10,7 @@ import Header from '../../components/Header';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
 import { largeBreakpoint } from '../../constants/designTokens';
+import FoodStore from '../../FoodStore';
 import GridScreen from '../GridScreen';
 import { MainScreenContainer } from './styled';
 
@@ -22,6 +23,8 @@ const mobileBadgePosition = {
   yellow: { top: 0, left: -32, rotate: -27 },
   green: { right: -32, bottom: -110, rotate: -13 },
 };
+
+const foodStore = new FoodStore();
 
 export const MainScreen: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
@@ -66,7 +69,7 @@ export const MainScreen: React.FC = () => {
       </Wrapper>
 
       <BottomDrawer expanded={expanded} onChange={setExpanded}>
-        <GridScreen />
+        <GridScreen foodStore={foodStore} />
       </BottomDrawer>
     </>
   );

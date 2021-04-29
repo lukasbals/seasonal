@@ -10,7 +10,7 @@ import {
 
 export interface FoodCardProps {
   type: 'vegetable' | 'fruit';
-  asset: JSX.Element;
+  asset: string | JSX.Element;
   name?: string;
 }
 
