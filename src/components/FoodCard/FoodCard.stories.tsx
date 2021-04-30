@@ -26,13 +26,15 @@ const Template: Story<Food> = (args) => (
 
 export const WithoutName = Template.bind({});
 WithoutName.args = {
-  asset: <div>Image of a vegetable</div>,
+  asset:
+    'https://images.prismic.io/slicemachine-blank/30d6602b-c832-4379-90ef-100d32c5e4c6_selfie.png?auto=compress,format&rect=255,0,1536,1536&w=500&h=500',
   type: 'vegetable',
 };
 
 export const WithName = Template.bind({});
 WithName.args = {
-  asset: <div>Asset</div>,
+  asset:
+    'https://images.prismic.io/slicemachine-blank/30d6602b-c832-4379-90ef-100d32c5e4c6_selfie.png?auto=compress,format&rect=255,0,1536,1536&w=500&h=500',
   type: 'fruit',
   name: 'Apple',
 };

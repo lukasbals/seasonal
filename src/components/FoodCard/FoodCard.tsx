@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Food } from '../../models/Food';
 import {
+  AssetContainer,
   Dot,
   FoodCardContainer,
   NameText,
@@ -22,7 +23,9 @@ export const FoodCard: React.FC<Food> = ({
           <FormattedMessage id={`foodCard.${type}`} />
         </TypeText>
       </TypeContainer>
-      <div>{asset}</div>
+      <AssetContainer>
+        <img src={asset} alt={name} />
+      </AssetContainer>
       <NameText>{name}</NameText>
     </FoodCardContainer>
   );

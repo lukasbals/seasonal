@@ -74,3 +74,16 @@ export const NameText = styled.div`
     font-size: 16px;
   }
 `;
+
+export const AssetContainer = styled.div`
+  & img {
+    height: 120px;
+    width: auto;
+  }
+
+  ${smallBreakpointCss} {
+    & img {
+      height: 100px;
+    }
+  }
+`;

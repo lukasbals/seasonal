@@ -30,10 +30,8 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
     };
 
     useEffect(() => {
-      if (foodStore.allFood.length === 0) {
-        foodStore.fetchFood();
-      }
-    }, [foodStore.allFood]);
+      foodStore.fetchFood();
+    }, []);
 
     return (
       <GridScreenContainer>
@@ -48,30 +46,34 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
           />
         </GridScreenHeader>
         <Gap />
-        <ScrollContainer>
-          <Grid
-            items={foodStore.displayedFood}
-            emptyText={
-              <FormattedMessage
-                id="gridScreen.nothingFoundMessage"
-                values={{ searchValue }}
-              />
-            }
-            emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
-            onEmptyAction={() => handleSearch('')}
-          />
-          <Gap />
-          {window.innerWidth < mediumBreakpoint && (
-            <>
-              <Gap />
-              <Gap />
-              <Gap />
-              <Gap />
-              <Gap />
-              <Gap />
-            </>
-          )}
-        </ScrollContainer>
+        {foodStore.fetchingFood ? (
+          <div>Loading ...</div>
+        ) : (
+          <ScrollContainer>
+            <Grid
+              items={foodStore.displayedFood}
+              emptyText={
+                <FormattedMessage
+                  id="gridScreen.nothingFoundMessage"
+                  values={{ searchValue }}
+                />
+              }
+              emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
+              onEmptyAction={() => handleSearch('')}
+            />
+            <Gap />
+            {window.innerWidth < mediumBreakpoint && (
+              <>
+                <Gap />
+                <Gap />
+                <Gap />
+                <Gap />
+                <Gap />
+                <Gap />
+              </>
+            )}
+          </ScrollContainer>
+        )}
       </GridScreenContainer>
     );
   }

@@ -11,7 +11,7 @@ export interface MonthSelectProps {
 export const MonthSelect: React.FC<MonthSelectProps> = ({
   onSelect,
 }: MonthSelectProps) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(new Date().getUTCMonth());
 
   return (
     <MonthSelectContainer>
