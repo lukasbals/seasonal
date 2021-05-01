@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import {
   black,
   darkBlack,
+  lightGreen,
   mediumBorderRadius,
   mediumBreakpointCss,
   mediumTransitionDuration,
   primaryGreen,
   primaryShadow,
+  primaryTransitionEase,
   secondaryFontFamily,
   white,
 } from '../../constants/designTokens';
@@ -46,8 +48,13 @@ export const MonthSelectButton = styled.button`
   line-height: 100%;
   color: ${black};
   font-family: ${secondaryFontFamily};
-  transition: background-color ease ${mediumTransitionDuration},
-    color ease ${mediumTransitionDuration};
+  transition: background-color ${primaryTransitionEase}
+      ${mediumTransitionDuration},
+    color ${primaryTransitionEase} ${mediumTransitionDuration};
+
+  &:hover {
+    background-color: ${lightGreen};
+  }
 
   &.active {
     background-color: ${primaryGreen};

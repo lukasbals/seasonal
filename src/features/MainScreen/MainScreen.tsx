@@ -21,7 +21,7 @@ const desktopBadgePosition = {
 
 const mobileBadgePosition = {
   yellow: { top: 0, left: -32, rotate: -27 },
-  green: { right: -32, bottom: -110, rotate: -13 },
+  green: { right: -32, bottom: 48, rotate: -13 },
 };
 
 const foodStore = new FoodStore();

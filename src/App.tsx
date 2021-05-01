@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
+  *:focus {
+    outline: none;
+  }
+
   /* Fix IOS input fields */
   input[type=text] {      
     -webkit-appearance: none;

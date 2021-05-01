@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { mediumMaxWidth } from '../../constants/designTokens';
 
 export const MainScreenContainer = styled.div`
-  max-width: 1000px;
+  max-width: ${mediumMaxWidth};
   margin: auto;
-  margin-top: calc(50vh - 240px);
+  margin-top: calc(50vh - 264px);
 
   text-align: center;
 `;

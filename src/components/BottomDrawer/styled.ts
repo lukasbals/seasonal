@@ -3,14 +3,15 @@ import {
   bigBorderRadius,
   bigMaxWidth,
   largeBreakpointCss,
-  mediumTransitionDuration,
+  longTransitionDuration,
   secondaryShadow,
+  secondaryTransitionEase,
   smallBreakpointCss,
   white,
 } from '../../constants/designTokens';
 
 export const PageBackground = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -54,7 +55,7 @@ export const ButtomDrawerContainer = styled.div`
   pointer-events: visible;
   cursor: pointer;
 
-  transition: top ease ${mediumTransitionDuration};
+  transition: top ${secondaryTransitionEase} ${longTransitionDuration};
 
   &.expanded {
     top: ${gapTopExpanded};

@@ -3,8 +3,10 @@ import {
   darkBlack,
   largeBreakpointCss,
   lightGrey,
-  mediumTransitionDuration,
+  longTransitionDuration,
   primaryFontFamily,
+  primaryTransitionEase,
+  secondaryTransitionEase,
 } from '../../constants/designTokens';
 
 interface StyledHeaderProps {
@@ -18,7 +20,7 @@ export const StyledHeader = styled.header<StyledHeaderProps>`
   align-items: center;
   justify-content: space-between;
 
-  transition: height ease ${mediumTransitionDuration};
+  transition: height ${secondaryTransitionEase} ${longTransitionDuration};
 
   ${largeBreakpointCss} {
     height: ${({ expanded }) => (expanded ? '80px' : '100px')};
@@ -81,7 +83,7 @@ export const BurgerContainer = styled.div<BurgerContainerProps>`
   display: inline-block;
   position: relative;
 
-  transition: border ease ${mediumTransitionDuration};
+  transition: border ${primaryTransitionEase} ${longTransitionDuration};
 
   & svg {
     position: absolute;

@@ -11,7 +11,7 @@ import {
 } from '../../constants/designTokens';
 
 export const FoodCardContainer = styled.div`
-  height: 264px;
+  height: 224px;
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ export const FoodCardContainer = styled.div`
   border-radius: ${mediumBorderRadius};
 
   ${smallBreakpointCss} {
-    height: 196px;
+    height: 156px;
   }
 `;
 
@@ -77,13 +77,13 @@ export const NameText = styled.div`
 
 export const AssetContainer = styled.div`
   & img {
-    height: 120px;
+    height: 104px;
     width: auto;
   }
 
   ${smallBreakpointCss} {
     & img {
-      height: 100px;
+      height: 72px;
     }
   }
 `;

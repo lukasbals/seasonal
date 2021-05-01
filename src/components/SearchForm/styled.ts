@@ -5,6 +5,7 @@ import {
   mediumBorderRadius,
   mediumTransitionDuration,
   primaryShadow,
+  primaryTransitionEase,
   secondaryFontFamily,
   white,
 } from '../../constants/designTokens';
@@ -25,11 +26,11 @@ export const StyledInput = styled.input`
   background: ${white};
   box-shadow: ${primaryShadow};
 
-  transition: border ease ${mediumTransitionDuration};
+  transition: border ${primaryTransitionEase} ${mediumTransitionDuration};
 
   &::placeholder {
     color: ${darkGrey};
-    transition: color ease ${mediumTransitionDuration};
+    transition: color ${primaryTransitionEase} ${mediumTransitionDuration};
   }
 
   &:focus {
@@ -67,7 +68,7 @@ export const StyledForm = styled.form`
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
-    transition: opacity ease ${mediumTransitionDuration};
+    transition: opacity ${primaryTransitionEase} ${mediumTransitionDuration};
   }
 
   &.clear-icon-visible svg:last-of-type {

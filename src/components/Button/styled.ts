@@ -13,6 +13,7 @@ export const PrimaryButton = styled.button`
   border-radius: 1000px;
   font-family: ${secondaryFontFamily};
   cursor: pointer;
+  letter-spacing: 0.6px;
 
   &.seasonal-button--large {
     background-color: ${primaryGreen};

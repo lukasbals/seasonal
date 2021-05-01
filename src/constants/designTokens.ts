@@ -2,6 +2,7 @@
 export const primaryGreen = '#34A852';
 export const secondaryGreen = 'rgba(52, 168, 82, 0.1)';
 export const darkGreen = '#039E38';
+export const lightGreen = '#EAF6ED';
 export const mediumGreen = '#82907F';
 export const primaryYellow = '#FFD057';
 export const darkBlack = '#0C3116';
@@ -26,6 +27,7 @@ export const secondaryShadow =
 
 // Transitions
 export const mediumTransitionDuration = '0.2s';
+export const longTransitionDuration = '0.4s';
 
 // Border radius
 export const mediumBorderRadius = '12px';
@@ -33,6 +35,7 @@ export const bigBorderRadius = '24px';
 
 // Viewport sizes
 export const bigMaxWidth = '1440px';
+export const mediumMaxWidth = '1000px';
 
 // Breakpoints
 export const smallBreakpoint = 540;
@@ -47,3 +50,7 @@ export const mediumBreakpointCss = `@media only screen and (max-width: ${mediumB
 export const largeBreakpointCss = `@media only screen and (max-width: ${largeBreakpoint}px)`;
 export const xLargeBreakpointCss = `@media only screen and (max-width: ${xLargBreakpoint}px)`;
 export const xxLargeBreakpointCss = `@media only screen and (max-width: ${xxLargBreakpoint}px)`;
+
+// Transition ease
+export const primaryTransitionEase = 'ease';
+export const secondaryTransitionEase = 'cubic-bezier(0.52, 0, 0.23, 0.99)';
