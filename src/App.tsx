@@ -7,11 +7,9 @@ import MainScreen from './features/MainScreen';
 import rootMessagesDe from './rootMessages.de';
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    font-family: ${secondaryFontFamily}
-  }
-
   body {
+    font-family: ${secondaryFontFamily};
+    text-rendering: geometricPrecision;
     margin: 0;
     background-color: ${pageBackground};
     overflow: hidden;
