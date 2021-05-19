@@ -56,3 +56,10 @@ EmptyWithAction.args = {
   emptyActionText: 'Reset search',
   onEmptyAction: () => console.log('On empty action clicked'),
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  items: [],
+  emptyText: 'Nothing found',
+  loading: true,
+};

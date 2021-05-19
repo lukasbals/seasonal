@@ -3,21 +3,39 @@ import YellowBadge from '../../assets/YellowBadge';
 import { FoodWithMeta } from '../../models/Food';
 import Button from '../Button';
 import FoodCard from '../FoodCard';
-import { EmptyContainer, EmptyText, GridContainer } from './styled';
+import {
+  EmptyContainer,
+  EmptyText,
+  GridContainer,
+  LoadingCard,
+} from './styled';
 
 export interface GridProps {
   items: FoodWithMeta[];
   emptyText: string | JSX.Element;
   emptyActionText?: string | JSX.Element;
   onEmptyAction?: () => void;
+  loading?: boolean;
 }
+
+const loadingCardIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export const Grid: React.FC<GridProps> = ({
   items,
   emptyText,
   emptyActionText,
+  loading = false,
   onEmptyAction,
 }: GridProps) => {
+  if (loading) {
+    return (
+      <GridContainer>
+        {loadingCardIds.map((id) => (
+          <LoadingCard key={id} />
+        ))}
+      </GridContainer>
+    );
+  }
   return (
     <>
       {items.length === 0 ? (

@@ -28,6 +28,7 @@ export const secondaryShadow =
 // Transitions
 export const mediumTransitionDuration = '0.2s';
 export const longTransitionDuration = '0.4s';
+export const extraLongTransitionDuration = '1s';
 
 // Border radius
 export const mediumBorderRadius = '12px';

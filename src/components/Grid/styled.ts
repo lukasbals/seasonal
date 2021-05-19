@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import {
   darkBlack,
+  extraLongTransitionDuration,
   largeBreakpointCss,
+  pageBackground,
+  mediumBorderRadius,
   mediumBreakpointCss,
   primaryFontFamily,
+  primaryTransitionEase,
+  smallBreakpointCss,
   xLargeBreakpointCss,
   xxLargeBreakpointCss,
 } from '../../constants/designTokens';
@@ -73,5 +78,33 @@ export const GridContainer = styled.div`
 
   ${mediumBreakpointCss} {
     grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+export const LoadingCard = styled.div`
+  @keyframes opacityPulse {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+
+  height: 224px;
+
+  background-color: ${pageBackground};
+  border-radius: ${mediumBorderRadius};
+
+  animation: ${extraLongTransitionDuration} ${primaryTransitionEase}
+    opacityPulse;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+
+  ${smallBreakpointCss} {
+    height: 156px;
   }
 `;

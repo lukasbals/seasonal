@@ -46,34 +46,32 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
           />
         </GridScreenHeader>
         <Gap />
-        {foodStore.fetchingFood ? (
-          <div>Loading ...</div>
-        ) : (
-          <ScrollContainer>
-            <Grid
-              items={foodStore.displayedFood}
-              emptyText={
-                <FormattedMessage
-                  id="gridScreen.nothingFoundMessage"
-                  values={{ searchValue }}
-                />
-              }
-              emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
-              onEmptyAction={() => handleSearch('')}
-            />
-            <Gap />
-            {window.innerWidth < mediumBreakpoint && (
-              <>
-                <Gap />
-                <Gap />
-                <Gap />
-                <Gap />
-                <Gap />
-                <Gap />
-              </>
-            )}
-          </ScrollContainer>
-        )}
+
+        <ScrollContainer>
+          <Grid
+            items={foodStore.displayedFood}
+            emptyText={
+              <FormattedMessage
+                id="gridScreen.nothingFoundMessage"
+                values={{ searchValue }}
+              />
+            }
+            emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
+            onEmptyAction={() => handleSearch('')}
+            loading={foodStore.fetchingFood}
+          />
+          <Gap />
+          {window.innerWidth < mediumBreakpoint && (
+            <>
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+              <Gap />
+            </>
+          )}
+        </ScrollContainer>
       </GridScreenContainer>
     );
   }
