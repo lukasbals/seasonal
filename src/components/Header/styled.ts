@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import {
-  darkBlack,
   largeBreakpointCss,
   lightGrey,
   longTransitionDuration,
-  primaryFontFamily,
   primaryTransitionEase,
   secondaryTransitionEase,
 } from '../../constants/designTokens';
@@ -59,13 +57,6 @@ export const HeaderSection = styled.div`
       width: 20%;
     }
   }
-`;
-
-export const Heading = styled.h1`
-  font-family: ${primaryFontFamily};
-  color: ${darkBlack};
-  font-size: 40px;
-  line-height: 40px;
 `;
 
 interface BurgerContainerProps {

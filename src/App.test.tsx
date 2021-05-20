@@ -7,8 +7,8 @@ const setup = () => {
 };
 describe('The App component', () => {
   test('renders a headline', () => {
-    const { getByText } = setup();
+    const { getAllByRole } = setup();
 
-    expect(getByText('seasonal')).toBeInTheDocument();
+    expect(getAllByRole('heading')).toHaveLength(2);
   });
 });

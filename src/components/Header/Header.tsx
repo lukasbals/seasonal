@@ -1,12 +1,7 @@
 import React from 'react';
 import Burger from '../../assets/Burger';
 import { largeBreakpoint } from '../../constants/designTokens';
-import {
-  Heading,
-  HeaderSection,
-  StyledHeader,
-  BurgerContainer,
-} from './styled';
+import { HeaderSection, StyledHeader, BurgerContainer } from './styled';
 
 export interface HeaderProps {
   heading: string | JSX.Element;
@@ -26,9 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <StyledHeader expanded={expanded}>
       <HeaderSection>{!mobile && left}</HeaderSection>
-      <HeaderSection>
-        <Heading>{heading}</Heading>
-      </HeaderSection>
+      <HeaderSection>{heading}</HeaderSection>
       <HeaderSection>
         {!mobile ? (
           right
