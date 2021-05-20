@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import GreenBadge from '../../assets/GreenBadge';
+import Info from '../../assets/Info';
 import Logo from '../../assets/Logo';
 import YellowBadge from '../../assets/YellowBadge';
 import BadgeContainer from '../../components/BadgeContainer';
@@ -66,7 +67,13 @@ export const MainScreen: React.FC = () => {
               }}
             />
           }
-          left={<Button label="Learn more" size="small" />}
+          left={
+            <Button
+              label={<FormattedMessage id="mainScreen.about" />}
+              size="small"
+              icon={<Info />}
+            />
+          }
           expanded={expanded}
         />
         <MainScreenContainer>

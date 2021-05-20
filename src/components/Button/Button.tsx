@@ -15,6 +15,10 @@ export interface ButtonProps {
    */
   label: string | JSX.Element;
   /**
+   * Icon to show in the button
+   */
+  icon?: JSX.Element | null;
+  /**
    * Optional click handler
    */
   onClick?: () => void;
@@ -25,6 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'primary',
   label,
   onClick,
+  icon = null,
 }: ButtonProps) => {
   return type === 'primary' ? (
     <PrimaryButton
@@ -32,6 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={`seasonal-button--${size}`}
       onClick={onClick}
     >
+      {icon && icon}
       {label}
     </PrimaryButton>
   ) : (

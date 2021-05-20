@@ -6,5 +6,7 @@ export const MainScreenContainer = styled.div`
   margin: auto;
   margin-top: calc(50vh - 264px);
 
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

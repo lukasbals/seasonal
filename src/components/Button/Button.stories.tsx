@@ -2,6 +2,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Button, ButtonProps } from './Button';
+import Info from '../../assets/Info';
+import Burger from '../../assets/Burger';
 
 export default {
   title: 'Component/Button',
@@ -31,4 +33,20 @@ export const Link = Template.bind({});
 Link.args = {
   label: 'Button',
   type: 'link',
+};
+
+export const PrimaryLargeWithIcon = Template.bind({});
+PrimaryLargeWithIcon.args = {
+  size: 'large',
+  label: 'Button',
+  type: 'primary',
+  icon: <Burger />,
+};
+
+export const PrimarySmallWithIcon = Template.bind({});
+PrimarySmallWithIcon.args = {
+  size: 'small',
+  label: 'Button',
+  type: 'primary',
+  icon: <Info />,
 };

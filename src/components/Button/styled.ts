@@ -4,11 +4,14 @@ import {
   mediumBreakpointCss,
   primaryGreen,
   secondaryFontFamily,
-  secondaryGreen,
   white,
 } from '../../constants/designTokens';
 
 export const PrimaryButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
   border: hidden;
   border-radius: 1000px;
   font-family: ${secondaryFontFamily};
@@ -29,15 +32,19 @@ export const PrimaryButton = styled.button`
   }
 
   &.seasonal-button--small {
-    background-color: ${secondaryGreen};
+    background-color: transparent;
 
-    padding: 8px 24px;
+    padding: 1.5px 4px;
 
     font-size: 14px;
     line-height: 17px;
-    color: ${primaryGreen};
+    color: ${darkBlack};
+  }
 
-    border: 1.5px solid ${primaryGreen};
+  & svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
   }
 `;
 
