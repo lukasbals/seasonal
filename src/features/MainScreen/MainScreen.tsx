@@ -10,7 +10,12 @@ import Header from '../../components/Header';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
 import { largeBreakpoint } from '../../constants/designTokens';
+import { LOCAL_STORAGE_DRAWER_EXPANDED_STATE } from '../../constants/localStorageKeys';
 import FoodStore from '../../FoodStore';
+import {
+  getItemFromLocalStorage,
+  saveItemInLocalStorage,
+} from '../../utils/localStorage';
 import GridScreen from '../GridScreen';
 import { MainScreenContainer } from './styled';
 
@@ -25,9 +30,21 @@ const mobileBadgePosition = {
 };
 
 const foodStore = new FoodStore();
+const initialDrawerState =
+  getItemFromLocalStorage(LOCAL_STORAGE_DRAWER_EXPANDED_STATE) === 'true'
+    ? true
+    : false;
 
 export const MainScreen: React.FC = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(initialDrawerState);
+
+  const setExpandedState = (state: boolean): void => {
+    setExpanded(state);
+    saveItemInLocalStorage(
+      LOCAL_STORAGE_DRAWER_EXPANDED_STATE,
+      state ? 'true' : 'false'
+    );
+  };
 
   const badgePosition =
     window.innerWidth < largeBreakpoint
@@ -42,7 +59,7 @@ export const MainScreen: React.FC = () => {
             <Logo
               onClick={() => {
                 if (expanded) {
-                  setExpanded(false);
+                  setExpandedState(false);
                 } else {
                   window.location.reload();
                 }
@@ -61,14 +78,14 @@ export const MainScreen: React.FC = () => {
           </SubHeading>
           <Button
             label={<FormattedMessage id="mainScreen.button" />}
-            onClick={() => setExpanded(true)}
+            onClick={() => setExpandedState(true)}
           />
         </MainScreenContainer>
         <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
         <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
       </Wrapper>
 
-      <BottomDrawer expanded={expanded} onChange={setExpanded}>
+      <BottomDrawer expanded={expanded} onChange={setExpandedState}>
         <GridScreen foodStore={foodStore} />
       </BottomDrawer>
     </>
