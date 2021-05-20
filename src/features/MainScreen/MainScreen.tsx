@@ -8,6 +8,7 @@ import BadgeContainer from '../../components/BadgeContainer';
 import BottomDrawer from '../../components/BottomDrawer';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
+import SideDrawer from '../../components/SideDrawer';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
 import { largeBreakpoint } from '../../constants/designTokens';
@@ -37,10 +38,11 @@ const initialDrawerState =
     : false;
 
 export const MainScreen: React.FC = () => {
-  const [expanded, setExpanded] = useState(initialDrawerState);
+  const [calendarExpanded, setCalendarExpanded] = useState(initialDrawerState);
+  const [aboutExpanded, setAboutExpanded] = useState(false);
 
   const setExpandedState = (state: boolean): void => {
-    setExpanded(state);
+    setCalendarExpanded(state);
     saveItemInLocalStorage(
       LOCAL_STORAGE_DRAWER_EXPANDED_STATE,
       state ? 'true' : 'false'
@@ -59,7 +61,7 @@ export const MainScreen: React.FC = () => {
           heading={
             <Logo
               onClick={() => {
-                if (expanded) {
+                if (calendarExpanded) {
                   setExpandedState(false);
                 } else {
                   window.location.reload();
@@ -72,9 +74,10 @@ export const MainScreen: React.FC = () => {
               label={<FormattedMessage id="mainScreen.about" />}
               size="small"
               icon={<Info />}
+              onClick={() => setAboutExpanded(true)}
             />
           }
-          expanded={expanded}
+          expanded={calendarExpanded}
         />
         <MainScreenContainer>
           <Heading1>
@@ -92,9 +95,13 @@ export const MainScreen: React.FC = () => {
         <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
       </Wrapper>
 
-      <BottomDrawer expanded={expanded} onChange={setExpandedState}>
+      <BottomDrawer expanded={calendarExpanded} onChange={setExpandedState}>
         <GridScreen foodStore={foodStore} />
       </BottomDrawer>
+
+      <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
+        <div>About</div>
+      </SideDrawer>
     </>
   );
 };
