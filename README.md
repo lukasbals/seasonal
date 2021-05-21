@@ -1,19 +1,36 @@
-# Seasonal app
+# 🥗 Seasonal app
 
 Seasonal is your seasonal/regional calendar for food. You can find the hosted version
 on [seasonal.wiki](https://seasonal.wiki). The project is based on
 [React](https://reactjs.org) and you can find the storybook component library on
 [storybook.seasonal.wiki](https://storybook.seasonal.wiki).
 
-## Available commands:
+## ⚙️ Technologies used
+
+- [React](https://reactjs.org) as the JS library.
+- [Storybook](https://storybook.js.org/) as a the component library accessible on
+  [storybook.seasonal.wiki](https://storybook.seasonal.wiki).
+- [MobX](https://mobx.js.org/README.html) as the state management tool.
+- [Styled components](https://styled-components.com/) for the styling.
+- [Prismic](https://prismic.io/) as the CMS.
+
+## 👩‍💻 Development:
+
+Install dependencies:
 
 ```bash
-yarn install # Install dependencies
+yarn install
+```
 
-yarn start # Run the app in dev mode
+Start the app in development mode:
 
-yarn build # Build the app for production
+```bash
+yarn start
+```
 
+### Quality analysis:
+
+```bash
 yarn test # Run the tests
 
 yarn lint # Lint the code using eslint
@@ -21,4 +38,24 @@ yarn lint # Lint the code using eslint
 yarn lint-fix # Lint the code and fix issues if there are some
 
 yarn format # Format the code using prettier
+```
+
+### Dev tools used:
+
+- [Typescript](https://www.typescriptlang.org/)
+- Linting with [ESLint](https://eslint.org/)
+- Formatting with [Prettier](https://prettier.io/)
+- Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
+- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+
+## 🏃‍♀️ Run on production:
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+```bash
+yarn build
 ```
