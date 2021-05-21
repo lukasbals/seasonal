@@ -21,9 +21,10 @@ export const PageBackground = styled.div<SideDrawerContainerProps>`
 
   background-color: ${({ expanded }) =>
     expanded ? `${black}CC` : 'transparent'};
-  ${({ expanded }) => !expanded && 'pointer-events: none;'}
+  pointer-events: none;
 
-  transition: background-color ${secondaryTransitionEase} ${longTransitionDuration};
+  transition: ${secondaryTransitionEase} ${longTransitionDuration}
+    background-color;
 `;
 
 const drawerWidthDesktop = 576;
@@ -44,7 +45,7 @@ export const SideDrawerContainer = styled.div<SideDrawerContainerProps>`
 
   transition: left ${secondaryTransitionEase} ${longTransitionDuration};
 
-  ${({ expanded }) => expanded && 'pointer-events: all;'}
+  pointer-events: visible;
 `;
 
 export const CloseButton = styled.button`

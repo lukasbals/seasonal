@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  darkBlack,
   largeBreakpointCss,
   mediumGreen,
   primaryFontFamily,
@@ -22,6 +23,19 @@ export const Heading1 = styled.h1`
   }
 `;
 
+export const Heading2 = styled.h2`
+  font-family: ${primaryFontFamily};
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  margin: 0 0 16px 0;
+
+  color: ${darkBlack};
+`;
+
 export const SubHeading = styled.p`
   font-family: ${secondaryFontFamily};
   font-weight: 400;
@@ -34,4 +48,15 @@ export const SubHeading = styled.p`
   ${largeBreakpointCss} {
     font-size: 14px;
   }
+`;
+
+export const Text = styled.p`
+  font-family: ${secondaryFontFamily};
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
+  text-align: center;
+
+  color: ${mediumGreen};
 `;

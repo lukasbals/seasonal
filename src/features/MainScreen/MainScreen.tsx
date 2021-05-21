@@ -18,17 +18,18 @@ import {
   getItemFromLocalStorage,
   saveItemInLocalStorage,
 } from '../../utils/localStorage';
+import About from '../About';
 import GridScreen from '../GridScreen';
 import { MainScreenContainer } from './styled';
 
 const desktopBadgePosition = {
   yellow: { top: window.innerHeight / 4, right: 0, rotate: 13 },
-  green: { top: window.innerHeight / 2 + 150, left: -10, rotate: -13 },
+  green: { top: window.innerHeight / 2 + 150, left: 0, rotate: -13 },
 };
 
 const mobileBadgePosition = {
   yellow: { top: 0, left: -32, rotate: -27 },
-  green: { right: -32, bottom: 48, rotate: -13 },
+  green: { right: -32, bottom: 0, rotate: -13 },
 };
 
 const foodStore = new FoodStore();
@@ -100,7 +101,7 @@ export const MainScreen: React.FC = () => {
       </BottomDrawer>
 
       <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
-        <div>About</div>
+        <About />
       </SideDrawer>
     </>
   );

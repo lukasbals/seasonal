@@ -6,11 +6,11 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   overflow: hidden;
 
-  padding: 0 80px 24px 80px;
+  padding: 0 80px 150px 80px;
 
   position: relative;
 
   ${largeBreakpointCss} {
-    padding: 0 24px 24px 24px;
+    padding: 0 24px 124px 24px;
   }
 `;

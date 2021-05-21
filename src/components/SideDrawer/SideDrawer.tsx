@@ -14,7 +14,7 @@ export const SideDrawer: React.FC<SideDrawerProps> = ({
   onChange,
 }: SideDrawerProps) => {
   return (
-    <PageBackground expanded={expanded} onClick={() => onChange(false)}>
+    <PageBackground expanded={expanded}>
       <SideDrawerContainer expanded={expanded}>
         <CloseButton onClick={() => onChange(false)}>
           <Close />

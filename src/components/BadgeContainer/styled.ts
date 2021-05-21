@@ -11,7 +11,7 @@ interface StyledBadgeContainerProps {
 export const StyledBadgeContainer = styled.div<StyledBadgeContainerProps>`
   width: 165px;
   height: 165px;
-  position: fixed;
+  position: absolute;
 
   top: ${({ top }) => top}px;
   right: ${({ right }) => right}px;
