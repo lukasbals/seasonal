@@ -1,11 +1,11 @@
 import React from 'react';
 import { darkBlack } from '../constants/designTokens';
 
-const Close: React.FC = () => {
+const Check: React.FC = () => {
   return (
-    <svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M12.5 3.5l-9 9m9 0l-9-9"
+        d="M16.875 5.625l-8.75 8.75L3.75 10"
         stroke={darkBlack}
         strokeLinecap="round"
         strokeWidth="1.5"
@@ -14,4 +14,4 @@ const Close: React.FC = () => {
   );
 };
 
-export default Close;
+export default Check;
