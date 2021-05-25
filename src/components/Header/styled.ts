@@ -37,7 +37,9 @@ export const HeaderSection = styled.div`
     }
   }
   &:nth-of-type(3) {
-    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   ${largeBreakpointCss} {

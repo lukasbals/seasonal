@@ -5,4 +5,11 @@ export default {
   'mainScreen.button': 'Zum Kalender',
 
   'mainScreen.about': 'Über Seasonal',
+
+  'mainScreen.selectLabel': 'Region auswählen',
+
+  // Region translations
+  'mainScreen.austria': 'Österreich',
+  'mainScreen.germany': 'Deutschland',
+  'mainScreen.switzerland': 'Schweiz',
 };

@@ -4,6 +4,7 @@ import months from './constants/months';
 import { FoodWithMeta } from './models/Food';
 import { Language } from './models/Language';
 import { Month } from './models/Month';
+import { Region } from './models/Region';
 
 class FoodStore {
   allFood: FoodWithMeta[] = []; // All foods of one month
@@ -12,6 +13,7 @@ class FoodStore {
 
   selectedMonth: Month = months[new Date().getUTCMonth()];
   searchTerm = '';
+  selectedRegion: Region = 'austria';
 
   // When multiple languages are supported this could be set dynamically
   selectedLanguage: Language = {
@@ -49,7 +51,8 @@ class FoodStore {
 
     const fetchedFood = await fetchFood(
       this.selectedMonth,
-      this.selectedLanguage
+      this.selectedLanguage,
+      this.selectedRegion
     );
 
     this.setFood(fetchedFood);
@@ -66,6 +69,13 @@ class FoodStore {
 
   setSelectedMonth = async (month: Month): Promise<void> => {
     this.selectedMonth = month;
+    this.searchTerm = '';
+
+    await this.fetchFood();
+  };
+
+  setSelectedRegion = async (region: Region): Promise<void> => {
+    this.selectedRegion = region;
     this.searchTerm = '';
 
     await this.fetchFood();

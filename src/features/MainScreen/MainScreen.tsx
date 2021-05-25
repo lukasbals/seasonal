@@ -20,6 +20,7 @@ import {
 } from '../../utils/localStorage';
 import About from '../About';
 import GridScreen from '../GridScreen';
+import RegionSelect from '../RegionSelect';
 import { MainScreenContainer } from './styled';
 
 const desktopBadgePosition = {
@@ -78,6 +79,7 @@ export const MainScreen: React.FC = () => {
               onClick={() => setAboutExpanded(true)}
             />
           }
+          right={<RegionSelect foodStore={foodStore} />}
           expanded={calendarExpanded}
         />
         <MainScreenContainer>

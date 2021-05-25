@@ -5,6 +5,7 @@ import types from '../constants/types';
 import { FoodWithMeta } from '../models/Food';
 import { Language } from '../models/Language';
 import { Month } from '../models/Month';
+import { Region } from '../models/Region';
 
 const enrichData = (data: ApiSearchResponse, month: Month): FoodWithMeta[] => {
   const enrichedData: FoodWithMeta[] = [];
@@ -22,13 +23,15 @@ const enrichData = (data: ApiSearchResponse, month: Month): FoodWithMeta[] => {
 
 const fetchFood = async (
   month: Month,
-  lang: Language
+  lang: Language,
+  region: Region
 ): Promise<FoodWithMeta[]> => {
   try {
     const data: ApiSearchResponse = await CLIENT.query(
       [
         Prismic.Predicates.at('document.type', 'food'),
         Prismic.Predicates.at(`my.food.months.${month}`, true),
+        Prismic.Predicates.at('my.food.region', region),
       ],
       { pageSize: 100, lang: lang.langWithCountry }
     );

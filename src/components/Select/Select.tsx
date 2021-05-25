@@ -19,7 +19,7 @@ export interface SelectProps {
   label?: string | JSX.Element;
   values: Item[];
   selectedValueId: string;
-  onChange: (newState: string) => void;
+  onChange: (selection: string) => void;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -35,9 +35,9 @@ export const Select: React.FC<SelectProps> = ({
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleSelect = (id: string) => {
+  const handleSelect = (selection: string) => {
     setDropdownOpen(false);
-    onChange(id);
+    onChange(selection);
   };
 
   return (

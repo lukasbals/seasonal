@@ -34,6 +34,7 @@ export const DropdownContainer = styled.div<DropdownStateProps>`
   flex-direction: column;
   align-items: flex-start;
   width: 228px;
+  z-index: 2;
 
   background: ${white};
   box-shadow: ${secondaryShadow};
@@ -50,7 +51,7 @@ export const DropdownContainer = styled.div<DropdownStateProps>`
   pointer-events: ${({ dropdownOpen }) => (dropdownOpen ? 'visible' : 'none')};
   top: ${({ dropdownOpen }) => (dropdownOpen ? '44px' : '40px')};
 
-  left: 0;
+  right: 0;
 `;
 
 export const SelectButton = styled.button<DropdownStateProps>`
