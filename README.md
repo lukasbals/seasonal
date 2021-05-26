@@ -28,6 +28,12 @@ Start the app in development mode:
 yarn start
 ```
 
+### Run [storybook](https://storybook.js.org/)
+
+```bash
+yarn storybook
+```
+
 ### Quality analysis:
 
 ```bash
