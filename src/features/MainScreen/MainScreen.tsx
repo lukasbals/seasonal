@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Burger from '../../assets/Burger';
+import Close from '../../assets/Close';
 import GreenBadge from '../../assets/GreenBadge';
 import Info from '../../assets/Info';
 import Logo from '../../assets/Logo';
@@ -99,12 +100,18 @@ export const MainScreen: React.FC = () => {
         <GridScreen foodStore={foodStore} />
       </BottomDrawer>
 
-      <SideDrawer
-        expanded={aboutExpanded}
-        onChange={setAboutExpanded}
-        bottomDrawerExpanded={calendarExpanded}
-      >
-        <About />
+      <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
+        <>
+          {window.innerWidth < largeBreakpoint && (
+            <Header
+              heading={<Logo onClick={() => setAboutExpanded(false)} />}
+              mobileIcon={<Close />}
+              onMobileIconClick={() => setAboutExpanded(false)}
+              expanded={calendarExpanded}
+            />
+          )}
+          <About foodStore={foodStore} />
+        </>
       </SideDrawer>
     </>
   );

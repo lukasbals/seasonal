@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import GreenBadge from '../../assets/GreenBadge';
@@ -10,32 +11,44 @@ import {
   mobileBadgePosition,
 } from '../../constants/badgePositions';
 import { largeBreakpoint } from '../../constants/designTokens';
-import { AboutContainer } from './styled';
+import FoodStore from '../../FoodStore';
+import RegionSelect from '../RegionSelect';
+import { AboutContainer, RegionSelectContainer } from './styled';
 
-export const About: React.FC = () => {
-  const badgePosition =
-    window.innerWidth < largeBreakpoint
-      ? mobileBadgePosition
-      : desktopAboutBadgePosition;
+interface AboutProps {
+  foodStore: FoodStore;
+}
 
-  return (
-    <AboutContainer>
-      <Heading2>
-        <FormattedMessage id="about.heading" />
-      </Heading2>
-      <Text>
-        <FormattedMessage id="about.text" />
-      </Text>
-      <Button
-        label={<FormattedMessage id="about.feedback" />}
-        type="link"
-        onClick={() => {
-          window.location.href = 'mailto:tobiassutterluety@gmail.com';
-        }}
-      />
+export const About: React.FC<AboutProps> = observer(
+  ({ foodStore }: AboutProps) => {
+    const badgePosition =
+      window.innerWidth < largeBreakpoint
+        ? mobileBadgePosition
+        : desktopAboutBadgePosition;
 
-      <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
-      <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
-    </AboutContainer>
-  );
-};
+    return (
+      <AboutContainer>
+        <Heading2>
+          <FormattedMessage id="about.heading" />
+        </Heading2>
+        <Text>
+          <FormattedMessage id="about.text" />
+        </Text>
+        <Button
+          label={<FormattedMessage id="about.feedback" />}
+          type="link"
+          onClick={() => {
+            window.location.href = 'mailto:tobiassutterluety@gmail.com';
+          }}
+        />
+
+        <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
+        <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
+
+        <RegionSelectContainer>
+          <RegionSelect foodStore={foodStore} />
+        </RegionSelectContainer>
+      </AboutContainer>
+    );
+  }
+);
