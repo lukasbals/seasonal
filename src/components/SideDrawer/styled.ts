@@ -5,6 +5,7 @@ import {
   secondaryTransitionEase,
   longTransitionDuration,
   black,
+  largeBreakpointCss,
 } from '../../constants/designTokens';
 
 interface SideDrawerContainerProps {
@@ -43,9 +44,23 @@ export const SideDrawerContainer = styled.div<SideDrawerContainerProps>`
   box-shadow: ${secondaryShadow};
   border-radius: 24px;
 
-  transition: left ${secondaryTransitionEase} ${longTransitionDuration};
+  transition: left ${secondaryTransitionEase} ${longTransitionDuration},
+    opacity ${secondaryTransitionEase} ${longTransitionDuration};
 
   pointer-events: visible;
+
+  ${largeBreakpointCss} {
+    top: 0;
+    left: 0;
+    width: calc(100% - 48px); /* Full width minus padding */
+    height: 100%;
+
+    border-radius: 0;
+    padding: 0 24px;
+
+    opacity: ${({ expanded }) => (expanded ? 1 : 0)};
+    pointer-events: ${({ expanded }) => (expanded ? 'visible' : 'none')};
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -70,5 +85,9 @@ export const CloseButton = styled.button`
   & svg {
     width: 16px;
     height: 16px;
+  }
+
+  ${largeBreakpointCss} {
+    display: none;
   }
 `;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Burger from '../../assets/Burger';
 import { largeBreakpoint } from '../../constants/designTokens';
 import { HeaderSection, StyledHeader, BurgerContainer } from './styled';
 
@@ -8,6 +7,8 @@ export interface HeaderProps {
   left?: string | JSX.Element;
   right?: string | JSX.Element;
   expanded?: boolean;
+  mobileIcon?: string | JSX.Element;
+  onMobileIconClick?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -15,6 +16,8 @@ export const Header: React.FC<HeaderProps> = ({
   left = '',
   right = '',
   expanded = false,
+  mobileIcon = '',
+  onMobileIconClick,
 }: HeaderProps) => {
   const mobile = window.innerWidth < largeBreakpoint;
 
@@ -26,8 +29,8 @@ export const Header: React.FC<HeaderProps> = ({
         {!mobile ? (
           right
         ) : (
-          <BurgerContainer expanded={expanded}>
-            <Burger />
+          <BurgerContainer expanded={expanded} onClick={onMobileIconClick}>
+            {mobileIcon}
           </BurgerContainer>
         )}
       </HeaderSection>

@@ -34,6 +34,10 @@ export const Heading2 = styled.h2`
   margin: 0 0 16px 0;
 
   color: ${darkBlack};
+
+  ${largeBreakpointCss} {
+    font-size: 28px;
+  }
 `;
 
 export const SubHeading = styled.p`
@@ -59,4 +63,8 @@ export const Text = styled.p`
   text-align: center;
 
   color: ${mediumGreen};
+
+  ${largeBreakpointCss} {
+    font-size: 14px;
+  }
 `;

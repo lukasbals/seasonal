@@ -5,9 +5,19 @@ import YellowBadge from '../../assets/YellowBadge';
 import BadgeContainer from '../../components/BadgeContainer';
 import Button from '../../components/Button';
 import { Heading2, Text } from '../../components/Typography';
+import {
+  desktopAboutBadgePosition,
+  mobileBadgePosition,
+} from '../../constants/badgePositions';
+import { largeBreakpoint } from '../../constants/designTokens';
 import { AboutContainer } from './styled';
 
 export const About: React.FC = () => {
+  const badgePosition =
+    window.innerWidth < largeBreakpoint
+      ? mobileBadgePosition
+      : desktopAboutBadgePosition;
+
   return (
     <AboutContainer>
       <Heading2>
@@ -24,18 +34,8 @@ export const About: React.FC = () => {
         }}
       />
 
-      <BadgeContainer
-        badge={<GreenBadge />}
-        bottom={-118 - 165}
-        right={0}
-        rotate={-13}
-      />
-      <BadgeContainer
-        badge={<YellowBadge />}
-        bottom={-165 - 165}
-        left={0}
-        rotate={13}
-      />
+      <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
+      <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
     </AboutContainer>
   );
 };

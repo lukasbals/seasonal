@@ -8,6 +8,7 @@ export interface BadgeContainerProps {
   bottom?: number;
   left?: number;
   rotate?: number;
+  position?: 'absolute' | 'fixed';
 }
 
 export const BadgeContainer: React.FC<BadgeContainerProps> = ({
@@ -17,6 +18,7 @@ export const BadgeContainer: React.FC<BadgeContainerProps> = ({
   bottom,
   left,
   rotate,
+  position = 'absolute',
 }: BadgeContainerProps) => {
   return (
     <StyledBadgeContainer
@@ -25,6 +27,7 @@ export const BadgeContainer: React.FC<BadgeContainerProps> = ({
       bottom={bottom}
       left={left}
       rotate={rotate}
+      position={position}
     >
       {badge}
     </StyledBadgeContainer>

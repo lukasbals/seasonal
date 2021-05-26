@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import Burger from '../../assets/Burger';
 import GreenBadge from '../../assets/GreenBadge';
 import Info from '../../assets/Info';
 import Logo from '../../assets/Logo';
@@ -11,6 +12,10 @@ import Header from '../../components/Header';
 import SideDrawer from '../../components/SideDrawer';
 import { Heading1, SubHeading } from '../../components/Typography';
 import Wrapper from '../../components/Wrapper';
+import {
+  desktopMainScreenBadgePosition,
+  mobileBadgePosition,
+} from '../../constants/badgePositions';
 import { largeBreakpoint } from '../../constants/designTokens';
 import { LOCAL_STORAGE_DRAWER_EXPANDED_STATE } from '../../constants/localStorageKeys';
 import FoodStore from '../../FoodStore';
@@ -22,16 +27,6 @@ import About from '../About';
 import GridScreen from '../GridScreen';
 import RegionSelect from '../RegionSelect';
 import { MainScreenContainer } from './styled';
-
-const desktopBadgePosition = {
-  yellow: { top: window.innerHeight / 4, right: 0, rotate: 13 },
-  green: { top: window.innerHeight / 2 + 150, left: 0, rotate: -13 },
-};
-
-const mobileBadgePosition = {
-  yellow: { top: 0, left: -32, rotate: -27 },
-  green: { right: -32, bottom: 0, rotate: -13 },
-};
 
 const foodStore = new FoodStore();
 const initialDrawerState =
@@ -54,7 +49,7 @@ export const MainScreen: React.FC = () => {
   const badgePosition =
     window.innerWidth < largeBreakpoint
       ? mobileBadgePosition
-      : desktopBadgePosition;
+      : desktopMainScreenBadgePosition;
 
   return (
     <>
@@ -81,6 +76,8 @@ export const MainScreen: React.FC = () => {
           }
           right={<RegionSelect foodStore={foodStore} />}
           expanded={calendarExpanded}
+          mobileIcon={<Burger />}
+          onMobileIconClick={() => setAboutExpanded(true)}
         />
         <MainScreenContainer>
           <Heading1>
@@ -102,7 +99,11 @@ export const MainScreen: React.FC = () => {
         <GridScreen foodStore={foodStore} />
       </BottomDrawer>
 
-      <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
+      <SideDrawer
+        expanded={aboutExpanded}
+        onChange={setAboutExpanded}
+        bottomDrawerExpanded={calendarExpanded}
+      >
         <About />
       </SideDrawer>
     </>
