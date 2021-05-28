@@ -10,19 +10,6 @@ import {
   white,
 } from '../../constants/designTokens';
 
-export const PageBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-
-  background-color: transparent;
-
-  overflow: hidden;
-`;
-
 const gapTopExpanded = '96px';
 const drawerVisibleUnexpanded = '60px';
 
@@ -32,7 +19,11 @@ const drawerVisibleUnexpandedMobile = '40px';
 const drawerPaddingTop = '42px';
 const drawerPaddingSide = '40px';
 
-export const ButtomDrawerContainer = styled.div`
+interface ExpandedProp {
+  expanded: boolean;
+}
+
+export const ButtomDrawerContainer = styled.div<ExpandedProp>`
   position: absolute;
 
   top: calc(100% - ${drawerVisibleUnexpanded});
@@ -53,23 +44,13 @@ export const ButtomDrawerContainer = styled.div`
   background-color: ${white};
 
   pointer-events: visible;
-  cursor: pointer;
+  cursor: ${({ expanded }) => (expanded ? 'auto' : 'pointer')};
 
   transition: top ${secondaryTransitionEase} ${longTransitionDuration};
-
-  &.expanded {
-    top: ${gapTopExpanded};
-
-    cursor: auto;
-  }
 
   ${largeBreakpointCss} {
     top: calc(100% - ${drawerVisibleUnexpandedMobile});
     height: calc(100% - ${gapTopExpandedMobile});
-
-    &.expanded {
-      top: ${gapTopExpandedMobile};
-    }
   }
 
   ${smallBreakpointCss} {

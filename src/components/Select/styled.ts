@@ -49,8 +49,6 @@ export const DropdownContainer = styled.div<DropdownStateProps>`
   flex-direction: column;
   align-items: flex-start;
   width: 228px;
-  z-index: 2;
-
   background: ${white};
   box-shadow: ${secondaryShadow};
   border-radius: 24px;

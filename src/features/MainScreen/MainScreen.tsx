@@ -27,7 +27,7 @@ import {
 import About from '../About';
 import GridScreen from '../GridScreen';
 import RegionSelect from '../RegionSelect';
-import { MainScreenContainer } from './styled';
+import { FixedContainer, MainScreenContainer } from './styled';
 
 const foodStore = new FoodStore();
 const initialDrawerState =
@@ -54,51 +54,58 @@ export const MainScreen: React.FC = () => {
 
   return (
     <>
-      <Wrapper>
-        <Header
-          heading={
-            <Logo
-              onClick={() => {
-                if (calendarExpanded) {
-                  setExpandedState(false);
-                } else {
-                  window.location.reload();
-                }
-              }}
-            />
-          }
-          left={
+      <FixedContainer>
+        <Wrapper>
+          <MainScreenContainer>
+            <Heading1>
+              <FormattedMessage id="mainScreen.heading" />
+            </Heading1>
+            <SubHeading>
+              <FormattedMessage id="mainScreen.subHeading" />
+            </SubHeading>
             <Button
-              label={<FormattedMessage id="mainScreen.about" />}
-              size="small"
-              icon={<Info />}
-              onClick={() => setAboutExpanded(true)}
+              label={<FormattedMessage id="mainScreen.button" />}
+              onClick={() => setExpandedState(true)}
             />
-          }
-          right={<RegionSelect foodStore={foodStore} />}
-          expanded={calendarExpanded}
-          mobileIcon={<Burger />}
-          onMobileIconClick={() => setAboutExpanded(true)}
-        />
-        <MainScreenContainer>
-          <Heading1>
-            <FormattedMessage id="mainScreen.heading" />
-          </Heading1>
-          <SubHeading>
-            <FormattedMessage id="mainScreen.subHeading" />
-          </SubHeading>
-          <Button
-            label={<FormattedMessage id="mainScreen.button" />}
-            onClick={() => setExpandedState(true)}
-          />
-        </MainScreenContainer>
-        <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
-        <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
-      </Wrapper>
+          </MainScreenContainer>
+          <BadgeContainer badge={<GreenBadge />} {...badgePosition.green} />
+          <BadgeContainer badge={<YellowBadge />} {...badgePosition.yellow} />
+        </Wrapper>
+      </FixedContainer>
 
       <BottomDrawer expanded={calendarExpanded} onChange={setExpandedState}>
         <GridScreen foodStore={foodStore} />
       </BottomDrawer>
+
+      <FixedContainer>
+        <Wrapper>
+          <Header
+            heading={
+              <Logo
+                onClick={() => {
+                  if (calendarExpanded) {
+                    setExpandedState(false);
+                  } else {
+                    window.location.reload();
+                  }
+                }}
+              />
+            }
+            left={
+              <Button
+                label={<FormattedMessage id="mainScreen.about" />}
+                size="small"
+                icon={<Info />}
+                onClick={() => setAboutExpanded(true)}
+              />
+            }
+            right={<RegionSelect foodStore={foodStore} />}
+            expanded={calendarExpanded}
+            mobileIcon={<Burger />}
+            onMobileIconClick={() => setAboutExpanded(true)}
+          />
+        </Wrapper>
+      </FixedContainer>
 
       <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
         <>

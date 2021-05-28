@@ -1,5 +1,6 @@
-import React from 'react';
-import { ButtomDrawerContainer, DrawerContent, PageBackground } from './styled';
+import React, { useEffect } from 'react';
+import useScrollDirection from '../../hooks/useScrollDirection';
+import { ButtomDrawerContainer, DrawerContent } from './styled';
 
 export interface BottomDrawerProps {
   children: JSX.Element;
@@ -12,18 +13,34 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
   expanded,
   onChange,
 }: BottomDrawerProps) => {
+  const scrollDirection = useScrollDirection();
+
+  useEffect(() => {
+    if (scrollDirection === 'up') {
+      onChange(true);
+    } else if (scrollDirection === 'down') {
+      onChange(false);
+    }
+  }, [scrollDirection]);
+
+  useEffect(() => {
+    if (expanded) {
+      window.scrollTo({ top: window.innerHeight });
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [expanded]);
+
   return (
-    <PageBackground className={expanded ? 'expanded' : ''}>
-      <ButtomDrawerContainer
-        className={expanded ? 'expanded' : ''}
-        onClick={() => {
-          if (!expanded) {
-            onChange(true);
-          }
-        }}
-      >
-        <DrawerContent>{children}</DrawerContent>
-      </ButtomDrawerContainer>
-    </PageBackground>
+    <ButtomDrawerContainer
+      expanded={expanded}
+      onClick={() => {
+        if (!expanded) {
+          onChange(true);
+        }
+      }}
+    >
+      <DrawerContent>{children}</DrawerContent>
+    </ButtomDrawerContainer>
   );
 };

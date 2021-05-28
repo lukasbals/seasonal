@@ -13,7 +13,7 @@ interface SideDrawerContainerProps {
 }
 
 export const PageBackground = styled.div<SideDrawerContainerProps>`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,7 +31,7 @@ export const PageBackground = styled.div<SideDrawerContainerProps>`
 const drawerWidthDesktop = 576;
 
 export const SideDrawerContainer = styled.div<SideDrawerContainerProps>`
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: ${({ expanded }) => (expanded ? 40 : -drawerWidthDesktop - 200)}px;
   bottom: 40px;
