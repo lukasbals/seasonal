@@ -17,7 +17,8 @@ export const GridScreenHeader = styled.div`
     grid-template-columns: auto;
 
     & form {
-      position: fixed;
+      z-index: 2;
+      position: absolute;
 
       bottom: 24px;
       left: 8px;

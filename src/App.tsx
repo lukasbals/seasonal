@@ -1,14 +1,14 @@
 import React from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
 import { IntlProvider } from 'react-intl';
 import { createGlobalStyle } from 'styled-components';
-
 import { pageBackground, secondaryFontFamily } from './constants/designTokens';
 import MainScreen from './features/MainScreen';
 import rootMessagesDe from './rootMessages.de';
 
 const GlobalStyle = createGlobalStyle`
   html {
-    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -24,12 +24,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* Fix IOS input fields */
-  input[type=text] {      
+  input[type=text] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
   }
 `;
+
+// kick off the polyfill!
+smoothscroll.polyfill();
 
 function App(): JSX.Element {
   return (

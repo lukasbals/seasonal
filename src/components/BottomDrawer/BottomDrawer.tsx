@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import useScrollDirection from '../../hooks/useScrollDirection';
+import React, { useLayoutEffect, useState } from 'react';
+import useScrollPosition from '../../hooks/useScrollPosition';
 import { ButtomDrawerContainer, DrawerContent } from './styled';
 
 export interface BottomDrawerProps {
@@ -13,21 +13,34 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
   expanded,
   onChange,
 }: BottomDrawerProps) => {
-  const scrollDirection = useScrollDirection();
+  const [transitionInProgress, setTransitionInProgress] = useState(false);
 
-  useEffect(() => {
-    if (scrollDirection === 'up') {
-      onChange(true);
-    } else if (scrollDirection === 'down') {
-      onChange(false);
+  const scrollPosition = useScrollPosition(expanded);
+
+  const setTranisitionInProgressForTime = (time: number) => {
+    setTransitionInProgress(true);
+    setTimeout(() => {
+      setTransitionInProgress(false);
+    }, time);
+  };
+
+  useLayoutEffect(() => {
+    if (!transitionInProgress) {
+      if (scrollPosition === 'top') {
+        onChange(true);
+      } else if (scrollPosition === 'bottom') {
+        onChange(false);
+      }
     }
-  }, [scrollDirection]);
+  }, [scrollPosition]);
 
-  useEffect(() => {
-    if (expanded) {
-      window.scrollTo({ top: window.innerHeight });
-    } else {
-      window.scrollTo({ top: 0 });
+  useLayoutEffect(() => {
+    if (expanded && scrollPosition === 'bottom') {
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+      setTranisitionInProgressForTime(1000);
+    } else if (!expanded && scrollPosition === 'top') {
+      window.scroll({ top: 0, behavior: 'smooth' });
+      setTranisitionInProgressForTime(1000);
     }
   }, [expanded]);
 

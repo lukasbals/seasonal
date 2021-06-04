@@ -10,6 +10,6 @@ export const Wrapper = styled.div`
   position: relative;
 
   ${largeBreakpointCss} {
-    padding: 0 24px 124px 24px;
+    padding: 0 24px;
   }
 `;
