@@ -26,7 +26,8 @@ interface ExpandedProp {
 export const ButtomDrawerContainer = styled.div<ExpandedProp>`
   position: absolute;
 
-  top: calc(100% - ${drawerVisibleUnexpanded});
+  top: calc(100% - ${drawerVisibleUnexpanded}); /* Fallback */
+  top: calc(var(--vh, 1vh) * 100 - ${drawerVisibleUnexpanded});
 
   /* Display center */
   left: 50%;
@@ -47,10 +48,12 @@ export const ButtomDrawerContainer = styled.div<ExpandedProp>`
   pointer-events: visible;
   cursor: ${({ expanded }) => (expanded ? 'auto' : 'pointer')};
 
-  transition: top ${secondaryTransitionEase} ${longTransitionDuration};
+  transition: top ${secondaryTransitionEase} ${longTransitionDuration},
+    height ${secondaryTransitionEase} ${longTransitionDuration};
 
   ${largeBreakpointCss} {
-    top: calc(100% - ${drawerVisibleUnexpandedMobile});
+    top: calc(100% - ${drawerVisibleUnexpandedMobile}); /* Fallback */
+    top: calc(var(--vh, 1vh) * 100 - ${drawerVisibleUnexpandedMobile});
     height: caslc(100% - ${gapTopExpandedMobile}); /* Fallback */
     height: calc(var(--vh, 1vh) * 100 - ${gapTopExpandedMobile});
   }

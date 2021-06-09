@@ -2,14 +2,15 @@ import { useEffect } from 'react';
 
 const useResizeEventListener = (): void => {
   useEffect(() => {
-    const resizeEventListener = () => {
+    const onResize = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
 
-    window.addEventListener('resize', resizeEventListener);
+    onResize();
+    window.addEventListener('resize', onResize);
 
-    return () => window.removeEventListener('resize', resizeEventListener);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 };
 
