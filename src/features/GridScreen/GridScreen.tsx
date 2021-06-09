@@ -29,9 +29,17 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
       foodStore.searchFood(searchTerm);
     };
 
+    const handleContributionRequest = () => {
+      window.location.href = `mailto:tobiassutterluety@gmail.com?subject=${formatMessage(
+        { id: 'gridScreen.contributeFood' }
+      )}`;
+    };
+
     useEffect(() => {
       foodStore.fetchFood();
     }, []);
+
+    const isSearching = foodStore.searchTerm !== '';
 
     return (
       <GridScreenContainer>
@@ -51,13 +59,27 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
           <Grid
             items={foodStore.displayedFood}
             emptyText={
-              <FormattedMessage
-                id="gridScreen.nothingFoundMessage"
-                values={{ searchValue }}
-              />
+              isSearching ? (
+                <FormattedMessage
+                  id="gridScreen.nothingFoundMessage"
+                  values={{ searchValue }}
+                />
+              ) : (
+                <FormattedMessage id="gridScreen.noSeasonalFoods" />
+              )
             }
-            emptyActionText={<FormattedMessage id="gridScreen.resetSearch" />}
-            onEmptyAction={() => handleSearch('')}
+            emptyActionText={
+              isSearching ? (
+                <FormattedMessage id="gridScreen.resetSearch" />
+              ) : (
+                <FormattedMessage id="gridScreen.contributeFood" />
+              )
+            }
+            onEmptyAction={
+              isSearching
+                ? () => handleSearch('')
+                : () => handleContributionRequest()
+            }
             loading={foodStore.fetchingFood}
           />
           <Gap />
