@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
+import useResizeEventListener from '../../hooks/useResizeEventListener';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import { ButtomDrawerContainer, DrawerContent } from './styled';
 
@@ -15,6 +16,7 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
 }: BottomDrawerProps) => {
   const [transitionInProgress, setTransitionInProgress] = useState(false);
 
+  useResizeEventListener();
   const scrollPosition = useScrollPosition(expanded);
 
   const setTranisitionInProgressForTime = (time: number) => {

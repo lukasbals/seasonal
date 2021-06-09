@@ -35,7 +35,8 @@ export const ButtomDrawerContainer = styled.div<ExpandedProp>`
   width: calc(100% - 48px);
   max-width: calc(${bigMaxWidth} + ${drawerPaddingSide} + ${drawerPaddingSide});
 
-  height: calc(100% - ${gapTopExpanded});
+  height: calc(100% - ${gapTopExpanded}); /* Fallback */
+  height: calc(var(--vh, 1vh) * 100 - ${gapTopExpanded});
 
   border-top-left-radius: ${bigBorderRadius};
   border-top-right-radius: ${bigBorderRadius};
@@ -50,7 +51,8 @@ export const ButtomDrawerContainer = styled.div<ExpandedProp>`
 
   ${largeBreakpointCss} {
     top: calc(100% - ${drawerVisibleUnexpandedMobile});
-    height: calc(100% - ${gapTopExpandedMobile});
+    height: caslc(100% - ${gapTopExpandedMobile}); /* Fallback */
+    height: calc(var(--vh, 1vh) * 100 - ${gapTopExpandedMobile});
   }
 
   ${smallBreakpointCss} {
