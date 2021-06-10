@@ -53,7 +53,7 @@ describe('The BottomDrawer component', () => {
     });
   });
 
-  test('unexpands if the drawer is open and the expanded props is set to false', async () => {
+  test('unexpands if the drawer is open and the expanded props is set to false', () => {
     Object.defineProperty(window, 'pageYOffset', {
       value: 100000 /* Max value */,
     });

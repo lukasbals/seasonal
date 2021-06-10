@@ -10,6 +10,7 @@ const ClearCircle: React.FC<ClearCircleProps> = ({
 }: ClearCircleProps) => {
   return (
     <svg
+      data-testid="clear-icon"
       fill="none"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
