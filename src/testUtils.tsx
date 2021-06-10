@@ -14,7 +14,9 @@ function render(
 ): RenderResult {
   const Wrapper: ComponentType = ({ children }: { children?: ReactNode }) => {
     return (
-      <IntlProvider locale="de" messages={rootMessagesDe}>
+      // On the testing env we need to use english as the locale even if we have
+      // german texts since german is not supported there
+      <IntlProvider locale="en" messages={rootMessagesDe}>
         {children}
       </IntlProvider>
     );
