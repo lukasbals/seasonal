@@ -33,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
 }: ButtonProps) => {
   return type === 'primary' ? (
     <PrimaryButton
+      data-testid="primary-button"
       type="button"
       className={`seasonal-button--${size}`}
       onClick={onClick}
@@ -41,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
       {label}
     </PrimaryButton>
   ) : (
-    <LinkButton type="button" onClick={onClick}>
+    <LinkButton data-testid="link-button" type="button" onClick={onClick}>
       {label}
     </LinkButton>
   );
