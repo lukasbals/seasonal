@@ -5,6 +5,8 @@ on [seasonal.wiki](https://seasonal.wiki). The project is based on
 [React](https://reactjs.org) and you can find the storybook component library on
 [storybook.seasonal.wiki](https://storybook.seasonal.wiki).
 
+[![Actions Status](https://github.com/lukasbals/seasonal/workflows/pull-request/badge.svg?branch=main)](https://github.com/lukasbals/seasonal/actions)
+
 ## ⚙️ Technologies used
 
 - [React](https://reactjs.org) as the JS library.
