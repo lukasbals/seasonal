@@ -26,7 +26,7 @@ export const FoodCard: React.FC<Food> = ({
       <AssetContainer>
         <img src={asset} alt={name} />
       </AssetContainer>
-      <NameText>{name}</NameText>
+      <NameText data-testid="test-name">{name}</NameText>
     </FoodCardContainer>
   );
 };

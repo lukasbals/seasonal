@@ -5,6 +5,7 @@ import App from './App';
 const setup = () => {
   return render(<App />);
 };
+
 describe('The App component', () => {
   test('renders a headline', () => {
     const { getAllByRole } = setup();
