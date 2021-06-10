@@ -41,7 +41,7 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
       setTranisitionInProgressForTime(1000);
     } else if (!expanded && scrollPosition === 'top') {
-      window.scroll({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setTranisitionInProgressForTime(1000);
     }
   }, [expanded]);
