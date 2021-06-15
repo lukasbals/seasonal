@@ -23,6 +23,7 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
     const { formatMessage } = useIntl();
 
     const [searchValue, setSearchValue] = useState('');
+    const [isMobile, setIsMobile] = useState(false);
 
     const handleSearch = (searchTerm: string) => {
       setSearchValue(searchTerm);
@@ -37,6 +38,12 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
 
     useEffect(() => {
       foodStore.fetchFood();
+    }, []);
+
+    useEffect(() => {
+      if (window.innerWidth < mediumBreakpoint) {
+        setIsMobile(true);
+      }
     }, []);
 
     const isSearching = foodStore.searchTerm !== '';
@@ -83,7 +90,7 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
             loading={foodStore.fetchingFood}
           />
           <Gap />
-          {window.innerWidth < mediumBreakpoint && (
+          {isMobile && (
             <>
               <Gap />
               <Gap />

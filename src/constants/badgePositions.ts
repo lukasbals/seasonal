@@ -1,8 +1,8 @@
 import BadgePosition from '../models/BadgePosition';
 
 export const desktopMainScreenBadgePosition: BadgePosition = {
-  yellow: { top: window.innerHeight / -8, right: 0, rotate: 13 },
-  green: { bottom: window.innerHeight / -8, left: -12, rotate: -13 },
+  yellow: { top: -140, right: 0, rotate: 13 },
+  green: { bottom: -140, left: -12, rotate: -13 },
 };
 
 export const desktopAboutBadgePosition: BadgePosition = {

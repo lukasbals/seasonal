@@ -6,8 +6,7 @@ export const MainScreenContainer = styled.div`
   margin: auto;
   margin-top: calc(
     50vh - 264px + 100px
-  ); // Half page - half of the content height + header height
-
+  ); /* Half page - half of the content height + header height */
   display: flex;
   flex-direction: column;
   align-items: center;

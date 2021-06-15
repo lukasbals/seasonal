@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Burger from '../../assets/Burger';
 import Close from '../../assets/Close';
@@ -38,6 +38,7 @@ const initialDrawerState =
 export const MainScreen: React.FC = () => {
   const [calendarExpanded, setCalendarExpanded] = useState(initialDrawerState);
   const [aboutExpanded, setAboutExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const setExpandedState = (state: boolean): void => {
     setCalendarExpanded(state);
@@ -47,10 +48,15 @@ export const MainScreen: React.FC = () => {
     );
   };
 
-  const badgePosition =
-    window.innerWidth < largeBreakpoint
-      ? mobileBadgePosition
-      : desktopMainScreenBadgePosition;
+  useEffect(() => {
+    if (window.innerWidth < largeBreakpoint) {
+      setIsMobile(true);
+    }
+  }, []);
+
+  const badgePosition = isMobile
+    ? mobileBadgePosition
+    : desktopMainScreenBadgePosition;
 
   return (
     <>
@@ -109,7 +115,7 @@ export const MainScreen: React.FC = () => {
 
       <SideDrawer expanded={aboutExpanded} onChange={setAboutExpanded}>
         <>
-          {window.innerWidth < largeBreakpoint && (
+          {isMobile && (
             <Header
               heading={<Logo onClick={() => setAboutExpanded(false)} />}
               mobileIcon={<Close />}

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useResizeEventListener from '../../hooks/useResizeEventListener';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import { ButtomDrawerContainer, DrawerContent } from './styled';
@@ -26,7 +26,7 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
     }, time);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!transitionInProgress) {
       if (scrollPosition === 'top') {
         onChange(true);
@@ -36,7 +36,7 @@ export const BottomDrawer: React.FC<BottomDrawerProps> = ({
     }
   }, [scrollPosition]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (expanded && scrollPosition === 'bottom') {
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
       setTranisitionInProgressForTime(1000);

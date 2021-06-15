@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import GreenBadge from '../../assets/GreenBadge';
 import YellowBadge from '../../assets/YellowBadge';
@@ -21,10 +21,17 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = observer(
   ({ foodStore }: AboutProps) => {
-    const badgePosition =
-      window.innerWidth < largeBreakpoint
-        ? mobileBadgePosition
-        : desktopAboutBadgePosition;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      if (window.innerWidth < largeBreakpoint) {
+        setIsMobile(true);
+      }
+    }, []);
+
+    const badgePosition = isMobile
+      ? mobileBadgePosition
+      : desktopAboutBadgePosition;
 
     return (
       <AboutContainer>

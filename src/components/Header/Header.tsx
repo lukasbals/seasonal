@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { largeBreakpoint } from '../../constants/designTokens';
 import { HeaderSection, StyledHeader, BurgerContainer } from './styled';
 
@@ -19,14 +19,20 @@ export const Header: React.FC<HeaderProps> = ({
   mobileIcon = '',
   onMobileIconClick,
 }: HeaderProps) => {
-  const mobile = window.innerWidth < largeBreakpoint;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < largeBreakpoint) {
+      setIsMobile(true);
+    }
+  }, []);
 
   return (
     <StyledHeader expanded={expanded}>
-      <HeaderSection>{!mobile && left}</HeaderSection>
+      <HeaderSection>{!isMobile && left}</HeaderSection>
       <HeaderSection>{heading}</HeaderSection>
       <HeaderSection>
-        {!mobile ? (
+        {!isMobile ? (
           right
         ) : (
           <BurgerContainer expanded={expanded} onClick={onMobileIconClick}>
