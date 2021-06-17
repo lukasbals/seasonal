@@ -13,7 +13,7 @@ export const Heading1 = styled.h1`
   color: ${primaryGreen};
   font-weight: 700;
   font-size: 72px;
-  line-height: 100%;
+  line-height: 72px;
   text-align: center;
   letter-spacing: -0.02em;
   margin: 0 0 12px 0;
@@ -27,7 +27,7 @@ export const Heading2 = styled.h2`
   font-family: ${primaryFontFamily};
   font-weight: 700;
   font-size: 40px;
-  line-height: 100%;
+  line-height: 40px;
   text-align: center;
   letter-spacing: -0.02em;
 
@@ -44,7 +44,7 @@ export const SubHeading = styled.p`
   font-family: ${secondaryFontFamily};
   font-weight: 400;
   font-size: 18px;
-  line-height: 150%;
+  line-height: 27px;
   text-align: center;
   color: ${mediumGreen};
   margin: 0 0 32px 0;
@@ -58,7 +58,7 @@ export const Text = styled.p`
   font-family: ${secondaryFontFamily};
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 24px;
 
   text-align: center;
 
