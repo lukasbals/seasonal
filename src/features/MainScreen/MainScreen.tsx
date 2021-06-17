@@ -36,7 +36,7 @@ const initialDrawerState =
     : false;
 
 export const MainScreen: React.FC = () => {
-  const [calendarExpanded, setCalendarExpanded] = useState(initialDrawerState);
+  const [calendarExpanded, setCalendarExpanded] = useState<boolean>();
   const [aboutExpanded, setAboutExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -52,6 +52,10 @@ export const MainScreen: React.FC = () => {
     if (window.innerWidth < largeBreakpoint) {
       setIsMobile(true);
     }
+  }, []);
+
+  useEffect(() => {
+    setCalendarExpanded(initialDrawerState);
   }, []);
 
   const badgePosition = isMobile
@@ -79,9 +83,12 @@ export const MainScreen: React.FC = () => {
         </Wrapper>
       </FixedContainer>
 
-      <BottomDrawer expanded={calendarExpanded} onChange={setExpandedState}>
-        <GridScreen foodStore={foodStore} />
-      </BottomDrawer>
+      {/* Wait until the calendarExpanded state is set */}
+      {calendarExpanded !== undefined && (
+        <BottomDrawer expanded={calendarExpanded} onChange={setExpandedState}>
+          <GridScreen foodStore={foodStore} />
+        </BottomDrawer>
+      )}
 
       <FixedContainer>
         <Wrapper>

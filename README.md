@@ -27,7 +27,7 @@ yarn install
 Start the app in development mode:
 
 ```bash
-yarn start
+yarn run dev
 ```
 
 ### Run [storybook](https://storybook.js.org/)
