@@ -32,14 +32,24 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const translations: Record<string, Record<string, string>> = {
+  de: rootMessagesDe,
+};
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     // kick off the polyfill!
     smoothscroll.polyfill();
   }, []);
 
+  const locale = 'de';
+
+  useEffect(() => {
+    document.documentElement.lang = 'de';
+  });
+
   return (
-    <IntlProvider messages={rootMessagesDe} locale="de">
+    <IntlProvider messages={translations[locale]} locale={locale}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

@@ -76,11 +76,9 @@ export const GridScreen: React.FC<GridScreenProps> = observer(
               )
             }
             emptyActionText={
-              isSearching ? (
-                <FormattedMessage id="gridScreen.resetSearch" />
-              ) : (
-                <FormattedMessage id="gridScreen.contributeFood" />
-              )
+              isSearching
+                ? formatMessage({ id: 'gridScreen.resetSearch' })
+                : formatMessage({ id: 'gridScreen.contributeFood' })
             }
             onEmptyAction={
               isSearching

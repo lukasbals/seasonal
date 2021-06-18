@@ -13,7 +13,7 @@ export interface ButtonProps {
   /**
    * Button contents
    */
-  label: string | JSX.Element;
+  label: string;
   /**
    * Icon to show in the button
    */
@@ -37,12 +37,18 @@ export const Button: React.FC<ButtonProps> = ({
       type="button"
       className={`seasonal-button--${size}`}
       onClick={onClick}
+      aria-label={label}
     >
       {icon && icon}
       {label}
     </PrimaryButton>
   ) : (
-    <LinkButton data-testid="link-button" type="button" onClick={onClick}>
+    <LinkButton
+      data-testid="link-button"
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+    >
       {label}
     </LinkButton>
   );

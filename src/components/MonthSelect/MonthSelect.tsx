@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import months from '../../constants/months';
 import { Month } from '../../models/Month';
 import { MonthSelectButton, MonthSelectContainer } from './styled';
-
 export interface MonthSelectProps {
   onSelect: (month: Month) => void;
 }
@@ -11,6 +10,8 @@ export interface MonthSelectProps {
 export const MonthSelect: React.FC<MonthSelectProps> = ({
   onSelect,
 }: MonthSelectProps) => {
+  const { formatMessage } = useIntl();
+
   const [value, setValue] = useState(new Date().getUTCMonth());
 
   return (
@@ -23,6 +24,7 @@ export const MonthSelect: React.FC<MonthSelectProps> = ({
             onSelect(month);
             setValue(index);
           }}
+          aria-label={formatMessage({ id: month })}
         >
           <FormattedMessage id={month} />
         </MonthSelectButton>

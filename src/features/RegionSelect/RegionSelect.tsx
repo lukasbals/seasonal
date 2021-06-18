@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import Select from '../../components/Select';
 import regions from '../../constants/regions';
 import FoodStore from '../../FoodStore';
@@ -11,6 +11,8 @@ interface RegionSelectProps {
 }
 export const RegionSelect: React.FC<RegionSelectProps> = observer(
   ({ foodStore }: RegionSelectProps) => {
+    const { formatMessage } = useIntl();
+
     const handleSelect = (id: string) => {
       foodStore.setSelectedRegion(id as Region);
     };
@@ -21,10 +23,10 @@ export const RegionSelect: React.FC<RegionSelectProps> = observer(
         selectedValueId={foodStore.selectedRegion}
         values={regions.map((region) => ({
           id: region,
-          name: <FormattedMessage id={`regionSelect.${region}`} />,
+          name: formatMessage({ id: `regionSelect.${region}` }),
         }))}
         onChange={handleSelect}
-        label={<FormattedMessage id="regionSelect.selectLabel" />}
+        label={formatMessage({ id: 'regionSelect.selectLabel' })}
       />
     );
   }

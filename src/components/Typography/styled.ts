@@ -20,6 +20,7 @@ export const Heading1 = styled.h1`
 
   ${largeBreakpointCss} {
     font-size: 37px;
+    line-height: 37px;
   }
 `;
 
@@ -37,6 +38,7 @@ export const Heading2 = styled.h2`
 
   ${largeBreakpointCss} {
     font-size: 28px;
+    line-height: 28px;
   }
 `;
 
@@ -51,6 +53,7 @@ export const SubHeading = styled.p`
 
   ${largeBreakpointCss} {
     font-size: 14px;
+    line-height: 21px;
   }
 `;
 
@@ -66,5 +69,6 @@ export const Text = styled.p`
 
   ${largeBreakpointCss} {
     font-size: 14px;
+    line-height: 21px;
   }
 `;

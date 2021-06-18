@@ -11,7 +11,7 @@ import {
 
 export interface Item {
   id: string;
-  name: string | JSX.Element;
+  name: string;
 }
 
 export interface SelectProps {
@@ -40,6 +40,7 @@ export const Select: React.FC<SelectProps> = ({
     onChange(selection);
   };
 
+  const country = values.find((value) => selectedValueId === value.id)?.name;
   return (
     <SelectContainer>
       {label && <Label htmlFor={id}>{label}:</Label>}
@@ -48,8 +49,9 @@ export const Select: React.FC<SelectProps> = ({
         id={id}
         onClick={toggleDropdown}
         dropdownOpen={dropdownOpen}
+        aria-label={`Select: ${country}`}
       >
-        {values.find((value) => selectedValueId === value.id)?.name}
+        {country}
         <CaretDown />
       </SelectButton>
 
@@ -59,6 +61,7 @@ export const Select: React.FC<SelectProps> = ({
             key={value.id}
             onClick={() => handleSelect(value.id)}
             active={value.id === selectedValueId}
+            aria-label={value.name}
           >
             {value.name}
             {value.id === selectedValueId && <Check />}

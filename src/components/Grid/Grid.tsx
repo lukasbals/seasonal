@@ -13,7 +13,7 @@ import {
 export interface GridProps {
   items: FoodWithMeta[];
   emptyText: string | JSX.Element;
-  emptyActionText?: string | JSX.Element;
+  emptyActionText?: string;
   onEmptyAction?: () => void;
   loading?: boolean;
 }

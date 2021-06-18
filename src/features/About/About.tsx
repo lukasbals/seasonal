@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import GreenBadge from '../../assets/GreenBadge';
 import YellowBadge from '../../assets/YellowBadge';
 import BadgeContainer from '../../components/BadgeContainer';
@@ -21,6 +21,8 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = observer(
   ({ foodStore }: AboutProps) => {
+    const { formatMessage } = useIntl();
+
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -42,7 +44,7 @@ export const About: React.FC<AboutProps> = observer(
           <FormattedMessage id="about.text" />
         </Text>
         <Button
-          label={<FormattedMessage id="about.feedback" />}
+          label={formatMessage({ id: 'about.feedback' })}
           type="link"
           onClick={() => {
             window.location.href = 'mailto:tobiassutterluety@gmail.com';

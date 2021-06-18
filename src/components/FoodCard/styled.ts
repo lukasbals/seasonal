@@ -78,11 +78,12 @@ export const NameText = styled.div`
 export const AssetContainer = styled.div`
   & img {
     height: 104px;
-    width: auto;
+    width: 104px;
   }
 
   ${smallBreakpointCss} {
     & img {
+      height: 72px;
       height: 72px;
     }
   }

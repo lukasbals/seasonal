@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Burger from '../../assets/Burger';
 import Close from '../../assets/Close';
 import GreenBadge from '../../assets/GreenBadge';
@@ -36,6 +36,8 @@ const initialDrawerState =
     : false;
 
 export const MainScreen: React.FC = () => {
+  const { formatMessage } = useIntl();
+
   const [calendarExpanded, setCalendarExpanded] = useState<boolean>();
   const [aboutExpanded, setAboutExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -74,7 +76,7 @@ export const MainScreen: React.FC = () => {
               <FormattedMessage id="mainScreen.subHeading" />
             </SubHeading>
             <Button
-              label={<FormattedMessage id="mainScreen.button" />}
+              label={formatMessage({ id: 'mainScreen.button' })}
               onClick={() => setExpandedState(true)}
             />
           </MainScreenContainer>
@@ -106,7 +108,7 @@ export const MainScreen: React.FC = () => {
             }
             left={
               <Button
-                label={<FormattedMessage id="mainScreen.about" />}
+                label={formatMessage({ id: 'mainScreen.about' })}
                 size="small"
                 icon={<Info />}
                 onClick={() => setAboutExpanded(true)}
