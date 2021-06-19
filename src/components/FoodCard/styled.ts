@@ -84,7 +84,7 @@ export const AssetContainer = styled.div`
   ${smallBreakpointCss} {
     & img {
       height: 72px;
-      height: 72px;
+      width: 72px;
     }
   }
 `;
