@@ -16,6 +16,7 @@ const enrichData = (data: ApiSearchResponse, month: Month): FoodWithMeta[] => {
       asset: result.data.asset.url,
       id: result.uid || result.id,
       month: month,
+      bg: result.data.bg,
     });
   });
   return enrichedData;

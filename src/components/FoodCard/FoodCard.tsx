@@ -5,6 +5,7 @@ import {
   AssetContainer,
   Dot,
   FoodCardContainer,
+  FullAssetContainer,
   NameText,
   TypeContainer,
   TypeText,
@@ -14,18 +15,25 @@ export const FoodCard: React.FC<Food> = ({
   type = 'vegetable',
   asset,
   name = '',
+  bg = 'cropped',
 }: Food) => {
   return (
-    <FoodCardContainer>
+    <FoodCardContainer className={bg}>
       <TypeContainer>
         <Dot type={type} />
         <TypeText>
           <FormattedMessage id={`foodCard.${type}`} />
         </TypeText>
       </TypeContainer>
-      <AssetContainer>
-        <img src={asset} alt={name} />
-      </AssetContainer>
+      {bg !== 'full' ? (
+        <AssetContainer>
+          <img src={asset} alt={name} />
+        </AssetContainer>
+      ) : (
+        <FullAssetContainer>
+          <img src={asset} alt={name} />
+        </FullAssetContainer>
+      )}
       <NameText data-testid="test-name">{name}</NameText>
     </FoodCardContainer>
   );

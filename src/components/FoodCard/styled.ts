@@ -8,11 +8,13 @@ import {
   primaryFontFamily,
   secondaryFontFamily,
   smallBreakpointCss,
+  white,
 } from '../../constants/designTokens';
 
 export const FoodCardContainer = styled.div`
   height: 224px;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,6 +27,20 @@ export const FoodCardContainer = styled.div`
 
   ${smallBreakpointCss} {
     height: 156px;
+  }
+
+  color: ${black};
+  &.full {
+    color: ${white};
+    border: hidden;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.64) 0%,
+      rgba(0, 0, 0, 0.32) 32%,
+      rgba(0, 0, 0, 0.24) 50%,
+      rgba(0, 0, 0, 0.32) 68%,
+      rgba(0, 0, 0, 0.64) 100%
+    );
   }
 `;
 
@@ -53,7 +69,6 @@ export const TypeText = styled.div`
   font-weight: 500;
   font-size: 10px;
   line-height: 100%;
-  color: ${black};
 
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -67,8 +82,6 @@ export const NameText = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-
-  color: ${black};
 
   ${smallBreakpointCss} {
     font-size: 16px;
@@ -86,5 +99,17 @@ export const AssetContainer = styled.div`
       height: 72px;
       width: 72px;
     }
+  }
+`;
+
+export const FullAssetContainer = styled.div`
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: ${mediumBorderRadius};
   }
 `;

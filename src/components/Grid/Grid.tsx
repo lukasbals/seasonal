@@ -58,6 +58,7 @@ export const Grid: React.FC<GridProps> = ({
               name={item.name}
               type={item.type}
               asset={item.asset}
+              bg={item.bg}
             />
           ))}
         </GridContainer>
